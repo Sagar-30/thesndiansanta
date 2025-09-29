@@ -94,12 +94,39 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Final CTA Section */}
+        {/* Enhanced Final CTA Section - Subtle Design */}
         <section className={styles.finalCta}>
-          <h2 className={styles.finalCtaTitle}>Ready to Find the Perfect Gift?</h2>
-          <button className={styles.ctaButton}>
-            <span>Shop Now</span>
-          </button>
+          <div className={styles.finalCtaContent}>
+            <div className={styles.finalCtaText}>
+              <h2 className={styles.finalCtaTitle}>Ready to Find the Perfect Gift?</h2>
+              <p className={styles.finalCtaSubtitle}>
+                Explore our curated collection of thoughtful gifts for every occasion. 
+                From birthdays to anniversaries, we help you make every moment special.
+              </p>
+            </div>
+            <div className={styles.finalCtaActions}>
+              <button className={styles.primaryButton}>
+                <span>Explore Collection</span>
+              </button>
+              <button className={styles.secondaryButton}>
+                <span>View All Categories</span>
+              </button>
+            </div>
+            <div className={styles.ctaFeatures}>
+              <div className={styles.feature}>
+                <div className={styles.featureIcon}>🎁</div>
+                <span className={styles.featureText}>Curated Selection</span>
+              </div>
+              <div className={styles.feature}>
+                <div className={styles.featureIcon}>🚚</div>
+                <span className={styles.featureText}>Free Shipping</span>
+              </div>
+              <div className={styles.feature}>
+                <div className={styles.featureIcon}>💝</div>
+                <span className={styles.featureText}>Personalized Options</span>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>

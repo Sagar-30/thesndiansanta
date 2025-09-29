@@ -1,0 +1,262 @@
+.categories {
+  min-height: 100vh;
+  background-color: #f8f6f6;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* Search Bar */
+.searchContainer {
+  width: 100%;
+  max-width: 32rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background-color: white;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  font-size: 1rem;
+  color: #111827;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #f0427c;
+  box-shadow: 0 0 0 2px rgba(240, 66, 124, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+/* Filter Buttons */
+.filterButtons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(240, 66, 124, 0.1);
+  color: #f0427c;
+}
+
+.filterButton:hover {
+  background-color: rgba(240, 66, 124, 0.2);
+}
+
+.filterButtonActive {
+  background-color: #f0427c;
+  color: white;
+  box-shadow: 0 1px 3px rgba(240, 66, 124, 0.3);
+}
+
+.filterButtonActive:hover {
+  background-color: #e91e63;
+}
+
+/* Products Grid */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2.5rem 1.5rem;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.productImage {
+  width: 100%;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.productName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.productPrice {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  .categories {
+    background-color: #221016;
+    color: #e5e7eb;
+  }
+  
+  .title {
+    color: #f9fafb;
+  }
+  
+  .subtitle {
+    color: #d1d5db;
+  }
+  
+  .searchInput {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+  
+  .searchInput::placeholder {
+    color: #9ca3af;
+  }
+  
+  .imageContainer {
+    background-color: #374151;
+  }
+  
+  .productName {
+    color: #d1d5db;
+  }
+  
+  .productPrice {
+    color: #f9fafb;
+  }
+  
+  .filterButton {
+    background-color: rgba(240, 66, 124, 0.2);
+  }
+  
+  .filterButton:hover {
+    background-color: rgba(240, 66, 124, 0.3);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .productsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .filterButtons {
+    gap: 0.5rem;
+  }
+  
+  .filterButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .productsGrid {
+    gap: 2rem 1rem;
+  }
+}
