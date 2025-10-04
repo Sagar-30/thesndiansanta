@@ -154,49 +154,66 @@
   margin: 0;
 }
 
-/* Dark Mode Styles */
+/* ... (previous styles remain the same) */
+
+/* Dark Mode Styles - FIXED */
 @media (prefers-color-scheme: dark) {
   .categories {
-    background-color: #221016;
-    color: #e5e7eb;
+    background-color: #221016 !important; /* Your exact dark background */
+    color: #e5e7eb !important;
   }
   
   .title {
-    color: #f9fafb;
+    color: #f9fafb !important;
   }
   
   .subtitle {
-    color: #d1d5db;
+    color: #d1d5db !important;
   }
   
   .searchInput {
-    background-color: #1f2937;
-    border-color: #374151;
-    color: #f9fafb;
+    background-color: #2d1a23 !important; /* Darker input background */
+    border-color: #4b5563 !important;
+    color: #f9fafb !important;
+  }
+  
+  .searchInput:focus {
+    border-color: #f0427c !important;
+    box-shadow: 0 0 0 2px rgba(240, 66, 124, 0.1) !important;
   }
   
   .searchInput::placeholder {
-    color: #9ca3af;
+    color: #9ca3af !important;
   }
   
   .imageContainer {
-    background-color: #374151;
+    background-color: #2d1a23 !important; /* Darker card background */
   }
   
   .productName {
-    color: #d1d5db;
+    color: #d1d5db !important;
   }
   
   .productPrice {
-    color: #f9fafb;
+    color: #f9fafb !important;
   }
   
   .filterButton {
-    background-color: rgba(240, 66, 124, 0.2);
+    background-color: rgba(240, 66, 124, 0.15) !important;
+    color: #f0427c !important;
   }
   
   .filterButton:hover {
-    background-color: rgba(240, 66, 124, 0.3);
+    background-color: rgba(240, 66, 124, 0.25) !important;
+  }
+  
+  .filterButtonActive {
+    background-color: #f0427c !important;
+    color: white !important;
+  }
+  
+  .filterButtonActive:hover {
+    background-color: #e91e63 !important;
   }
 }
 

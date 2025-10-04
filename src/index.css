@@ -1,49 +1,72 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* :root {
+
+  --charcoal: #1a1a1a;
+  --stone: #2d2d2d;
+  --pearl: #f8f8f8;
+  --ivory: #ffffff;
+  --taupe: #e8e6e1;
+  --bronze: #a87c4f;
+  --terracotta: #b3543a;
+  --sage: #8a9b8c;
+  --slate: #6c757d;
+  
+
+  --primary: var(--charcoal);
+  --secondary: var(--bronze);
+  --accent: var(--terracotta);
+  --background: var(--pearl);
+  --surface: var(--ivory);
+  --text-primary: var(--charcoal);
+  --text-secondary: var(--slate);
+  --border: #e5e5e5;
 }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  min-height: 100vh;
-}
-
-/* Scrollbar styling for webkit browsers */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
-
-/* Dark mode scrollbar */
 @media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: #2d3748;
+  :root {
+    --primary: var(--ivory);
+    --secondary: var(--bronze);
+    --accent: var(--terracotta);
+    --background: var(--charcoal);
+    --surface: var(--stone);
+    --text-primary: var(--ivory);
+    --text-secondary: var(--taupe);
+    --border: #404040;
   }
+} */
+
+:root {
+  /* Teal & Gold Luxury Color Palette */
+  --deep-teal: #0a3d3f;
+  --rich-teal: #1a5f61;
+  --soft-teal: #2d7c7e;
+  --pale-teal: #e8f4f4;
+  --gold: #c9a96e;
+  --light-gold: #e8d8b8;
+  --charcoal: #1a1a1a;
+  --stone: #2d2d2d;
+  --pearl: #f8f8f8;
+  --ivory: #ffffff;
   
-  ::-webkit-scrollbar-thumb {
-    background: #4a5568;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #718096;
+  /* Semantic colors */
+  --primary: var(--deep-teal);
+  --secondary: var(--gold);
+  --accent: var(--rich-teal);
+  --background: var(--pearl);
+  --surface: var(--ivory);
+  --text-primary: var(--charcoal);
+  --text-secondary: #5a6c6d;
+  --border: #e1e8e8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--gold);
+    --secondary: var(--soft-teal);
+    --accent: var(--light-gold);
+    --background: var(--charcoal);
+    --surface: var(--stone);
+    --text-primary: var(--ivory);
+    --text-secondary: var(--pale-teal);
+    --border: #3a4a4a;
   }
 }

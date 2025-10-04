@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styles from './Header.module.css';
 
 const Header = () => {
-  const [searchValue, setSearchValue] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -14,91 +14,101 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.logoSection}>
-          <div className={styles.logo}>
-            <svg className={styles.logoIcon} fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-              <path clipRule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fillRule="evenodd"></path>
-            </svg>
-            <h2 className={styles.logoText}>Indian Santa</h2>
+    <header className={styles.minimalHeader}>
+      <div className={styles.headerContainer}>
+        {/* Logo */}
+        <div className={styles.logo}>
+          <div className={styles.logoIcon}>
+            <img src="/logo.svg" alt="Logo" style={{ display: 'block', height: '4rem', width: 'auto', objectFit: 'contain' }} />
           </div>
-          
-          {/* Desktop Navigation */}
-          <nav className={styles.desktopNav}>
-            <a className={styles.navLink} href="#home" onClick={closeMobileMenu}>Home</a>
-            <a className={styles.navLink} href="#occasions" onClick={closeMobileMenu}>Occasions</a>
-            <a className={styles.navLink} href="#gifts" onClick={closeMobileMenu}>Gifts</a>
-            <a className={styles.navLink} href="#brands" onClick={closeMobileMenu}>Brands</a>
-            <a className={styles.navLink} href="#blog" onClick={closeMobileMenu}>Blog</a>
-          </nav>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className={styles.desktopNav}>
+          <a href="/" className={`${styles.navLink} ${styles.navLinkActive}`}>Home</a>
+          <a href="/categories" className={styles.navLink}>Categories</a>
+          <a href="/collection" className={styles.navLink}>Collections</a>
+          <a href="/occasions" className={styles.navLink}>Occasions</a>
+          <a href="/bespoke" className={styles.navLink}>Customize</a>
+        </nav>
+
+        {/* Actions */}
+        <div className={styles.actions}>
+          {/* Search */}
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              placeholder="Search luxury gifts..."
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              className={styles.searchInput}
+            />
+            <div className={styles.searchIcon}>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
+                <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          {/* Icons */}
+          <div className={styles.actionIcons}>
+            <button className={styles.iconButton} aria-label="Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+                      stroke="currentColor" 
+                      strokeWidth="1.5" 
+                      fill="none"/>
+              </svg>
+            </button>
+
+            <button className={styles.iconButton} aria-label="Cart">
+              <div className={styles.cartBadge}>3</div>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3h2l.4 2m0 0L7 13h10l2-8H5.4zM7 13l-2.3 2.3c-.4.4-.1 1.2.5 1.2H17m0 0v3a2 2 0 11-4 0v-3m4 0h-4" 
+                      stroke="currentColor" 
+                      strokeWidth="1.5" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"/>
+              </svg>
+            </button>
+
+            <div className={styles.userAvatar}>
+              <div className={styles.avatarIcon}>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+              </div>
+            </div>
+          </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className={styles.mobileMenuButton}
+            className={`${styles.mobileMenuButton} ${isMobileMenuOpen ? styles.menuOpen : ''}`}
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
-            <span className={styles.hamburgerLine}></span>
-            <span className={styles.hamburgerLine}></span>
-            <span className={styles.hamburgerLine}></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
+      </div>
 
-        <div className={styles.actionsSection}>
-          <div className={styles.searchContainer}>
-            <div className={styles.searchIcon}>
-              <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
-                <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
-              </svg>
-            </div>
-            <input 
-              className={styles.searchInput}
-              placeholder="Search"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </div>
-
-          <div className={styles.buttons}>
-            <button className={styles.iconButton} aria-label="Wishlist">
-              <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
-                <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path>
-              </svg>
-            </button>
-            
-            <button className={styles.iconButton} aria-label="Cart">
-              <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
-                <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path>
-              </svg>
-            </button>
-          </div>
-
-          <div 
-            className={styles.userAvatar}
-            style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBT7FlVyU_jdATAxY_4m0P4Y6RuEAbWbhWBVA8vQcTplQKxRrrF9TKgtu3O1lZFDtpUhlr-pL_Jwxv0fn4NVRRrQ00K_ZLuRaXz-zm9FRdbgHJknl8QRjQthlHlUAFHipXSmxJO1DUpVQ-BQH3qnUiwu1nZACfNSGbp11rPSxjpnkaKdUqim1gtZ8EXUnzHRfngFYZhmZPWd0svGtK07czppyVKiV4WJCOIwrUTb63TQUTnuqS0FQi9dIWDTvlk1OI0Nho66gqK6I")'}}
-            aria-label="User profile"
-          ></div>
-        </div>
-
-        {/* Mobile Navigation Overlay */}
-        <div className={`${styles.mobileNavOverlay} ${isMobileMenuOpen ? styles.mobileNavOpen : ''}`}>
-          <nav className={styles.mobileNav}>
-            <a className={styles.mobileNavLink} href="#home" onClick={closeMobileMenu}>Home</a>
-            <a className={styles.mobileNavLink} href="#occasions" onClick={closeMobileMenu}>Occasions</a>
-            <a className={styles.mobileNavLink} href="#gifts" onClick={closeMobileMenu}>Gifts</a>
-            <a className={styles.mobileNavLink} href="#brands" onClick={closeMobileMenu}>Brands</a>
-            <a className={styles.mobileNavLink} href="#blog" onClick={closeMobileMenu}>Blog</a>
-          </nav>
-        </div>
-
-        {/* Mobile Navigation Backdrop */}
-        {isMobileMenuOpen && (
-          <div 
-            className={styles.mobileNavBackdrop}
-            onClick={closeMobileMenu}
-          ></div>
-        )}
+      {/* Mobile Navigation */}
+      <div className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.mobileNavOpen : ''}`}>
+        <nav className={styles.mobileNavContent}>
+          <a href="/" className={styles.mobileNavLink} onClick={closeMobileMenu}>Home</a>
+          <a href="/collections" className={styles.mobileNavLink} onClick={closeMobileMenu}>Collections</a>
+          <a href="/occasions" className={styles.mobileNavLink} onClick={closeMobileMenu}>Occasions</a>
+          <a href="/bespoke" className={styles.mobileNavLink} onClick={closeMobileMenu}>Bespoke</a>
+        </nav>
+        <button className={styles.mobileCloseButton} onClick={closeMobileMenu}>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </button>
       </div>
     </header>
   );

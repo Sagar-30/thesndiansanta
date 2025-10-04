@@ -1,134 +1,431 @@
 import React from 'react';
 import styles from './Home.module.css';
-import CategoryCard from '../../components/CategoryCard/CategoryCard';
-import ProductCard from '../../components/ProductCard/ProductCard';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const featuredCategories = [
+  const featuredCollections = [
     {
-      name: "Birthday",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC6_bfyypnYeohLk4U15A8pcEPWMIEP3CWdRVgXg0htcHr6CMJ-WmzMtg5Qkx9Zi2EftnKd_VgmGXnQk-veRue4VxYjh3x6dz9FXP1G9HQ3XA1zJr1iRpRaVn_8Mkw3EThOsNEJD639mjLgeB93WQyRgWghWvjFlA-onn3WVMQklc29c3aO_v7zliYlTpX4ba4Jpilx7BQGumTtBD-XHjz3yFqlQPwCiTiKI9L7oszR2EFU2dKPOl6ddS9qI-89BpNqbuBUR_nRvlQ"
+      id: 1,
+      name: "Timeless Elegance",
+      description: "Classic pieces that never go out of style",
+      items: "24 items",
+      image: "🕰️"
     },
     {
-      name: "Anniversary",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBSSfTbsCkpmnUZvkmbUx-9PgF7ArayJ8YSLZXhOt8I2V9mAke-CE_EJMalCGBVxbt5IPbHxsr9hQ3rPgWLbZ7hJhzqaA9JUnK3NvkLwFamyff3VvbGcJxcAMhZq25HfQQIjzPvLDAkfABL1udl9b7dZJf4fpM1xNNZWAbWbc1VWl6KobgtjLsnRspKyCX1aaFfmmXT2p5vK2B6qmx0eK42lbtgts5frC0KSv3qG9Twfb5d9mnc7hemEl-rT1sRhuWB42ANImKeXAI"
+      id: 2,
+      name: "Modern Luxury",
+      description: "Contemporary designs for the discerning",
+      items: "18 items",
+      image: "✨"
     },
     {
-      name: "Corporate",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDFIZFeWSveFBceRL8N_vy8D1gJrCDSd76uxbS98LRPpry2IenUHBjhFO6cBUPuNRxqdtpg_T2oz392lRGMot0Kdr3iXH8Lgtkecg555Bb0mZCURP0Ge_s8C-C8Jgayv2RJLpMvuu2lFfxFlwnsdPi2Cd0q6VwzldZ-M-Blub_HiqbhCoDz88rela6ucQ6yC1aT7NoTWCeJnXlkugc-SwNWs-BI_S2ufL3-hOjxFNlolh2DmfIYs_qAp3OJ0y7ceKQ_CYr4fbPXvRc"
+      id: 3,
+      name: "Artisan Crafted",
+      description: "Handmade pieces with exceptional detail",
+      items: "16 items",
+      image: "👐"
     },
     {
-      name: "Custom",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCXE0e949ydtuJeX8x9V8iTWitS6Q5Z0-gcVUVmSOomeguQBW_p81J-pm34hdvvXmJhD4eSuh36f69yllrQBBSmGyIQJ-nploRsA01F3s1wRrsEaYYjWhD9X4DR0t9ClkE4cyYUCdieeapnNXU-usdtmfvkGxPv8Mg6joTrRXCtai4L3_-8Fn5AcnviFQsLX0EaIHMP5Q-nRapBCad4_Wbmw2n0totjy4YsXzxpRw3rp8vFvB7hCPtqQTwmziTqt99DP4W84SDXYnE"
+      id: 4,
+      name: "Heritage Pieces",
+      description: "Items with history and character",
+      items: "22 items",
+      image: "🏺"
     }
   ];
 
-  const trendingGifts = [
+  const luxuryProducts = [
     {
-      name: "Personalized Photo Album",
-      description: "Capture memories with a custom photo album",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBE62D0kU2P5LTCOmGy2UCwcpk423S-a7dbMIy4inRg76kjpHiuNkK3ut4DyWzdF3Xn8CmB0EvM35HIMNAiJHp6o7F4LI_kEaJPxARCjUJEYIZHBxBKdVcEoVT09kul1yHwwQQWPZ1BtuOdm6KFBUgjjiMGz-cxTtx66Kso_4brzM-NKNfooX8MuHEewDsvcKNXwefgredEr61q8LmBhuLa2UumOySy4M5_6A6VJGhHPxd2lIH82W5Lbyhup91grq93Ab53k7f-Yd0"
+      id: 1,
+      name: "Italian Leather Journal",
+      price: "$280",
+      description: "Handcrafted leather with gold foil detailing",
+      image: "📔",
+      category: "Writing"
     },
     {
-      name: "Gourmet Chocolate Box",
-      description: "Indulge in a selection of fine chocolates",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmldQwk9sDxH35sQGJHFVBANHncAkXkpzLHKFNPQ6xNZq-oCk4Vp27YpUVublg6DX8Vqt2lB6awCvNg6JLz0PtscoDUwHEOHetV4VRGE9pSR_wLyboFErHqJ7HawNvgxtz91IIvAP-fpSSmDGBDIqcyo4zMNo0bo2j7RycXqB3RNgF2lmw3-RwoCxPCfQ3NgvFZIvCyqtfak0gUGF4XxxTHfXxcnHU5_0IcfutRB6y7xleillpSWiSROkv4tasHD7oYjKNIn6IoHg"
+      id: 2,
+      name: "Crystal Decanter Set",
+      price: "$450",
+      description: "Lead-free crystal with walnut base",
+      image: "🍷",
+      category: "Barware"
     },
     {
-      name: "Luxury Spa Set",
-      description: "Relax and rejuvenate with a spa day",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAgh0UqfPE2vgomvNeTwJ4k43N-m0Zaq_HHZThNG0qvvrsb4aH-Xc9X51Y3TT0uqen_NVYRmpmPYDBzY5tMjCrROegRgoB6mte5JixKk_NcD9ssTfhlijD6zKHtm-BWmzxFQI4GH5XOxdo4r-o6C_ZkzbW53W51tMLMPAYtz44B73DNbQmyMLM4F_s2DiMahshwGW9UYKXNf2SiKflYcKqqVBhmBkoa9zKxoW46CtEIN98C0wbRG9ucOk9jXoa5_4h0wRRGWlBaKlg"
+      id: 3,
+      name: "Cashmere Travel Set",
+      price: "$320",
+      description: "Ultra-soft cashmere blanket and pillow",
+      image: "🧣",
+      category: "Travel"
     },
     {
-      name: "Tech Gadget Collection",
-      description: "Explore the latest tech innovations",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDT_qDubEDJrarqMG6Tzb1TF5kVR-vzI9ailIsJ9V6kPaSGMkFSuCccuYYl188uRcGYVxcVRoVclw396HQZ3XkY9ghYF9w2i5MijMEn6aa4mBkkk82P_721svKEjxspsqZBrmBKV6qDn84Odrq4tc5O66OEEggP0d0TTduRljvfdWe23SlSR7HHe04PkcCn7Vdhh6KyFvrEm-Ix35z4E3Nh9K7jJ8Oq36edk1EOmJlu4Ma-puuegTh7sjBNohO5ZWck6S8KhUvIyHY"
+      id: 4,
+      name: "Artisan Ceramic Set",
+      price: "$190",
+      description: "Hand-thrown ceramics with mineral glaze",
+      image: "🍶",
+      category: "Home"
     },
     {
-      name: "Handcrafted Jewelry",
-      description: "Adorn yourself with unique, handcrafted pieces",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBksmrEA5b_jbJ2sNwPBqDTCPdMhv2UH0kmTJg6u3t8IQCuy8Oo_4_nLH_Rpngymmd5g2a9q7Y9T01bpO9ddofZGnITklVY6bv_H43iudAsO820UC4ccrb0tHP77g1zy48PD-fDO4ET_LyARYoK7eKaS4o71XS0S02gRQKJbyUiRRNJXv10iBXCQp4WzrNmfWCfk79Hg10gG0_VppBQtMwz80tp4VmdFsjbnwQ-BPBHLpTj2-nYr4ttbbvcXKaJgvNfcNY8nvXMXYs"
+      id: 5,
+      name: "Wooden Watch Box",
+      price: "$380",
+      description: "Solid walnut with velvet lining",
+      image: "⌚",
+      category: "Accessories"
     },
     {
-      name: "Adventure Experience Voucher",
-      description: "Create unforgettable moments",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC-H05TIFSbTe_TSIXWru7XqmvPMWYJFrmBgQpzfQtTA2mMZV04QZ5vweILPSmvCk1siDT4qwYeqVnU-ehY2tQk_xfQ9uSECAZVlVQgc6mou_2ma_1_iDlsF1AFU9YW5G3_uB6OXseOpgK_o4hnBVYzdNnQwWFFDtzakR4iwn94DuNZ7_coGVWJMmwfYoojsDwaIiJfHSF8D09BHqN22uE60UwiuwENXULndi5-UYT7oYxzBkbbDGk-8w6dsfwQPRN3VZ1_oasXfGw"
+      id: 6,
+      name: "Brass Desk Set",
+      price: "$520",
+      description: "Solid brass with marble accents",
+      image: "✒️",
+      category: "Office"
     }
   ];
+
+  const occasions = [
+    {
+      id: 1,
+      name: "Anniversary",
+      description: "Celebrate lasting love",
+      icon: "💝"
+    },
+    {
+      id: 2,
+      name: "Birthday",
+      description: "Mark another year",
+      icon: "🎂"
+    },
+    {
+      id: 3,
+      name: "Wedding",
+      description: "Begin a new journey",
+      icon: "💒"
+    },
+    {
+      id: 4,
+      name: "Corporate",
+      description: "Professional appreciation",
+      icon: "🏢"
+    },
+    {
+      id: 5,
+      name: "Graduation",
+      description: "Celebrate achievement",
+      icon: "🎓"
+    },
+    {
+      id: 6,
+      name: "Housewarming",
+      description: "Welcome home",
+      icon: "🏠"
+    }
+  ];
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Priya Sharma",
+      role: "Luxury Brand Director",
+      text: "The attention to detail and quality of materials is exceptional. Each piece feels like it was made just for me.",
+      avatar: "👩‍💼"
+    },
+    {
+      id: 2,
+      name: "Rajiv Malhotra",
+      role: "Hotel Chain Owner",
+      text: "Our corporate clients consistently praise the sophistication of gifts from Indian Santa. It elevates every occasion.",
+      avatar: "👨‍💼"
+    },
+    {
+      id: 3,
+      name: "Ananya Patel",
+      role: "Art Collector",
+      text: "Finally, a gifting service that understands true luxury isn't about being loud, but about being meaningful.",
+      avatar: "👩‍🎨"
+    }
+  ];
+
+  const values = [
+    {
+      id: 1,
+      title: "Quality Craftsmanship",
+      description: "Every item is selected for its exceptional quality and attention to detail.",
+      icon: "🔍"
+    },
+    {
+      id: 2,
+      title: "Timeless Design",
+      description: "We focus on pieces that transcend trends and become lifelong treasures.",
+      icon: "⏳"
+    },
+    {
+      id: 3,
+      title: "Personal Service",
+      description: "Our concierge team ensures every gift is perfectly matched to its recipient.",
+      icon: "🤝"
+    }
+  ];
+
+  const Navigate = useNavigate();
 
   return (
-    <div className={styles.home}>
-      <div className={styles.layoutContainer}>
-        {/* Hero Section */}
-        <section className={styles.hero}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Find the Perfect Gift</h1>
-            <p className={styles.heroSubtitle}>
-              Discover unique and thoughtful gifts for every occasion. Make every celebration memorable with our curated collection.
-            </p>
-            <button className={styles.ctaButton}>
-              <span>Shop Now</span>
+    <div className={styles.minimalHome}>
+      {/* Hero Section */}
+      <section className={styles.minimalHero}>
+        <div className={styles.heroContent}>
+          <div className={styles.heroBadge}>
+            {/* <span>Established 2025</span> */}
+            <span>Where Elegance Meets Emotion</span> 
+          </div>
+
+          <h1 className={styles.heroTitle}>
+            <span className={styles.titleLine}>Timeless Gifts</span>
+            <span className={styles.titleLine}>Made for</span>
+            <span className={styles.titleAccent}>Every Occasion</span>
+          </h1>
+
+          <p className={styles.heroSubtitle}>
+            From birthdays to milestones, explore elegant gifts that blend craftsmanship with meaning.
+          </p>
+
+          <div className={styles.heroActions}>
+            <button className={styles.primaryCta} onClick={() =>{ Navigate('/collections')}}>
+              <span>Explore Collections</span>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+
+            {/* Personalize Your Gift */}
+            <button className={styles.secondaryCta}>
+              Craft Your Story
             </button>
           </div>
-        </section>
+        </div>
 
-        {/* Featured Categories Section */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Featured Categories</h2>
-          <div className={styles.categoriesContainer}>
-            <div className={styles.categoriesScroll}>
-              {featuredCategories.map((category, index) => (
-                <CategoryCard key={index} category={category} />
-              ))}
-            </div>
+        {/* Hero Indicators */}
+        {/* <div className={styles.heroIndicators}>
+          <div className={styles.indicator}>
+            <div className={styles.indicatorNumber}>500+</div>
+            <div className={styles.indicatorText}>Luxury Items</div>
           </div>
-        </section>
+          <div className={styles.indicator}>
+            <div className={styles.indicatorNumber}>Global</div>
+            <div className={styles.indicatorText}>Delivery</div>
+          </div>
+          <div className={styles.indicator}>
+            <div className={styles.indicatorNumber}>24/7</div>
+            <div className={styles.indicatorText}>Concierge</div>
+          </div>
+        </div> */}
+      </section>
 
-        {/* Trending Gifts Section */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Trending Gifts</h2>
-          <div className={styles.productsGrid}>
-            {trendingGifts.map((product, index) => (
-              <ProductCard key={index} product={product} />
+      {/* Featured Collections */}
+      <section className={styles.featuredCollections}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Curated Collections</h2>
+            <p className={styles.sectionSubtitle}>
+              Each collection is thoughtfully assembled around themes of timeless elegance and exceptional craftsmanship.
+            </p>
+          </div>
+
+          <div className={styles.collectionsGrid}>
+            {featuredCollections.map((collection) => (
+              <div key={collection.id} className={styles.collectionCard}>
+                <div className={styles.collectionImage}>
+                  <span className={styles.collectionIcon}>{collection.image}</span>
+                </div>
+                <div className={styles.collectionContent}>
+                  <h3 className={styles.collectionName}>{collection.name}</h3>
+                  <p className={styles.collectionDescription}>{collection.description}</p>
+                  <div className={styles.collectionMeta}>
+                    <span className={styles.collectionItems}>{collection.items}</span>
+                    <button className={styles.collectionButton}>
+                      Explore
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Enhanced Final CTA Section - Subtle Design */}
-        <section className={styles.finalCta}>
-          <div className={styles.finalCtaContent}>
-            <div className={styles.finalCtaText}>
-              <h2 className={styles.finalCtaTitle}>Ready to Find the Perfect Gift?</h2>
-              <p className={styles.finalCtaSubtitle}>
-                Explore our curated collection of thoughtful gifts for every occasion. 
-                From birthdays to anniversaries, we help you make every moment special.
-              </p>
-            </div>
-            <div className={styles.finalCtaActions}>
-              <button className={styles.primaryButton}>
-                <span>Explore Collection</span>
+      {/* Luxury Products */}
+      <section className={styles.luxuryProducts}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Exceptional Selections</h2>
+            <p className={styles.sectionSubtitle}>
+              Handpicked items that embody the essence of understated luxury and lasting quality.
+            </p>
+          </div>
+
+          <div className={styles.productsGrid}>
+            {luxuryProducts.map((product) => (
+              <div key={product.id} className={styles.productCard}>
+                <div className={styles.productImage}>
+                  <span className={styles.productIcon}>{product.image}</span>
+                </div>
+                <div className={styles.productContent}>
+                  <div className={styles.productCategory}>{product.category}</div>
+                  <h3 className={styles.productName}>{product.name}</h3>
+                  <p className={styles.productDescription}>{product.description}</p>
+                  <div className={styles.productFooter}>
+                    <span className={styles.productPrice}>{product.price}</span>
+                    <button className={styles.productButton}>
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.productsCta}>
+            <button className={styles.viewAllButton}>
+              View Complete Collection
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Occasions Section */}
+      <section className={styles.occasions}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>For Every Moment</h2>
+            <p className={styles.sectionSubtitle}>
+              Thoughtful gifts tailored to life's most meaningful occasions.
+            </p>
+          </div>
+
+          <div className={styles.occasionsGrid}>
+            {occasions.map((occasion) => (
+              <div key={occasion.id} className={styles.occasionCard}>
+                <div className={styles.occasionIcon}>{occasion.icon}</div>
+                <div className={styles.occasionContent}>
+                  <h3 className={styles.occasionName}>{occasion.name}</h3>
+                  <p className={styles.occasionDescription}>{occasion.description}</p>
+                </div>
+                <button className={styles.occasionButton}>
+                  Explore Gifts
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className={styles.testimonials}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Trusted by Connoisseurs</h2>
+            <p className={styles.sectionSubtitle}>
+              Discover why discerning individuals choose Indian Santa for their luxury gifting needs.
+            </p>
+          </div>
+
+          <div className={styles.testimonialsGrid}>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className={styles.testimonialCard}>
+                <div className={styles.testimonialContent}>
+                  <p className={styles.testimonialText}>"{testimonial.text}"</p>
+                </div>
+                <div className={styles.testimonialAuthor}>
+                  <div className={styles.authorAvatar}>{testimonial.avatar}</div>
+                  <div className={styles.authorInfo}>
+                    <h4 className={styles.authorName}>{testimonial.name}</h4>
+                    <p className={styles.authorRole}>{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className={styles.values}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Our Philosophy</h2>
+            <p className={styles.sectionSubtitle}>
+              We believe true luxury lies in quality, craftsmanship, and meaningful connections.
+            </p>
+          </div>
+
+          <div className={styles.valuesGrid}>
+            {values.map((value) => (
+              <div key={value.id} className={styles.valueCard}>
+                <div className={styles.valueIcon}>{value.icon}</div>
+                <h3 className={styles.valueTitle}>{value.title}</h3>
+                <p className={styles.valueDescription}>{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className={styles.finalCta}>
+        <div className={styles.container}>
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaTitle}>
+              Begin Your Journey <br />
+              to Extraordinary Gifting
+            </h2>
+            <p className={styles.ctaSubtitle}>
+              Experience the difference that thoughtful curation and exceptional quality can make.
+              Let us help you find the perfect expression of your appreciation.
+            </p>
+            <div className={styles.ctaActions}>
+              <button className={styles.ctaPrimary}>
+                Start Exploring
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
               </button>
-              <button className={styles.secondaryButton}>
-                <span>View All Categories</span>
+              <button className={styles.ctaSecondary}>
+                Book Consultation
               </button>
             </div>
             <div className={styles.ctaFeatures}>
               <div className={styles.feature}>
-                <div className={styles.featureIcon}>🎁</div>
-                <span className={styles.featureText}>Curated Selection</span>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="currentColor" strokeWidth="2" />
+                </svg>
+                <span>Complimentary Gift Wrapping</span>
               </div>
               <div className={styles.feature}>
-                <div className={styles.featureIcon}>🚚</div>
-                <span className={styles.featureText}>Free Shipping</span>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 15a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v6z" stroke="currentColor" strokeWidth="2" />
+                  <path d="M21 9l-9 6-9-6" stroke="currentColor" strokeWidth="2" />
+                </svg>
+                <span>Global Shipping</span>
               </div>
               <div className={styles.feature}>
-                <div className={styles.featureIcon}>💝</div>
-                <span className={styles.featureText}>Personalized Options</span>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 15l4-4m0 0l-4-4m4 4H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" />
+                </svg>
+                <span>Easy Returns</span>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };

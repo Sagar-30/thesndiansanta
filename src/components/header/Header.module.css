@@ -1,96 +1,126 @@
-.header {
-  border-bottom: 1px solid rgba(240, 66, 124, 0.2);
-  padding: 1rem 2.5rem;
-  position: relative;
+.minimalHeader {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
+.headerContainer {
+  max-width: 1400px;
   margin: 0 auto;
-  position: relative;
-}
-
-.logoSection {
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
-  flex: 1;
+  justify-content: space-between;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  color: #f0427c;
+  gap: 0.5rem;
+  text-decoration: none;
 }
 
 .logoIcon {
-  width: 2rem;
   height: 2rem;
+  width: auto;
+  vertical-align: top;
+  display: flex;
+  align-items: center;
+  /* padding-bottom: 2rem; */
 }
 
 .logoText {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logoPrimary {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.2em;
+}
+
+.logoSecondary {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--primary);
+  letter-spacing: 0.05em;
 }
 
 /* Desktop Navigation */
 .desktopNav {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 
 .navLink {
-  color: #1f2937;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.3s;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
 }
 
 .navLink:hover {
-  color: #f0427c;
+  color: var(--primary);
 }
 
-/* Mobile Menu Button */
-.mobileMenuButton {
-  display: none;
-  flex-direction: column;
-  gap: 3px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1001;
+.navLinkActive {
+  color: var(--primary);
+  font-weight: 500;
 }
 
-.hamburgerLine {
-  width: 20px;
-  height: 2px;
-  background-color: #1f2937;
-  transition: all 0.3s ease;
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--primary);
 }
 
-.mobileMenuButton:hover .hamburgerLine {
-  background-color: #f0427c;
-}
-
-.actionsSection {
+/* Actions */
+.actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex: 1;
-  justify-content: flex-end;
+  gap: 1.5rem;
 }
 
 .searchContainer {
   position: relative;
-  min-width: 10rem;
-  max-width: 16rem;
+  width: 280px;
+}
+
+.searchInput {
+  width: 70%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary);
 }
 
 .searchIcon {
@@ -98,179 +128,193 @@
   left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #9ca3af;
+  color: var(--text-secondary);
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-.searchInput {
-  width: 100%;
-  border: 1px solid rgba(240, 66, 124, 0.2);
-  border-radius: 0.5rem;
-  background-color: #f8f6f6;
-  height: 2.5rem;
-  padding: 0 2.5rem 0 2.5rem;
-  font-size: 0.875rem;
-  font-weight: normal;
-  color: #1f2937;
-}
-
-.searchInput:focus {
-  outline: none;
-  border-color: #f0427c;
-  box-shadow: 0 0 0 1px #f0427c;
-}
-
-.searchInput::placeholder {
-  color: #9ca3af;
-}
-
-.buttons {
+.actionIcons {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 1rem;
 }
 
 .iconButton {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  background-color: rgba(240, 66, 124, 0.1);
-  color: #f0427c;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .iconButton:hover {
-  background-color: rgba(240, 66, 124, 0.2);
+  background: var(--taupe);
+  color: var(--primary);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background: var(--terracotta);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userAvatar {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 9999px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  border-radius: 8px;
+  background: var(--taupe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.userAvatar:hover {
+  background: var(--sage);
+  color: var(--primary);
+}
+
+.avatarIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.mobileMenuButton span {
+  width: 100%;
+  height: 1px;
+  background: var(--primary);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Cross button state */
+.mobileMenuButton.menuOpen span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobileMenuButton.menuOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileMenuButton.menuOpen span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Mobile Navigation */
-.mobileNavOverlay {
+.mobileNav {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 80%;
-  max-width: 300px;
+  width: 100%;
   height: 100vh;
-  background-color: white;
-  z-index: 1000;
+  background: var(--surface);
+  z-index: 1001;
   transition: left 0.3s ease;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .mobileNavOpen {
   left: 0;
 }
 
-.mobileNav {
+.mobileNavContent {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 5rem 1.5rem 2rem;
-  height: 100%;
+  padding: 6rem 2rem 2rem;
 }
 
 .mobileNavLink {
-  color: #1f2937;
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-primary);
   text-decoration: none;
   padding: 1rem 0;
-  border-bottom: 1px solid #e5e7eb;
-  transition: color 0.3s;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s ease;
 }
 
 .mobileNavLink:hover {
-  color: #f0427c;
+  color: var(--terracotta);
 }
 
-.mobileNavLink:last-child {
-  border-bottom: none;
+.mobileCloseButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
 }
 
-.mobileNavBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-/* Dark mode styles */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  .navLink, .mobileNavLink {
-    color: #e5e7eb;
-  }
-  
-  .navLink:hover, .mobileNavLink:hover {
-    color: #f0427c;
+  .minimalHeader {
+    background: var(--surface);
+    border-bottom-color: var(--border);
   }
   
   .searchInput {
-    background-color: #221016;
-    color: #e5e7eb;
-    border-color: rgba(240, 66, 124, 0.3);
+    background: var(--surface);
+    border-color: var(--border);
   }
   
-  .searchInput::placeholder {
-    color: #6b7280;
-  }
-  
-  .iconButton {
-    background-color: rgba(240, 66, 124, 0.2);
-  }
-  
-  .iconButton:hover {
-    background-color: rgba(240, 66, 124, 0.3);
-  }
-  
-  .hamburgerLine {
-    background-color: #e5e7eb;
-  }
-  
-  .mobileMenuButton:hover .hamburgerLine {
-    background-color: #f0427c;
-  }
-  
-  .mobileNavOverlay {
-    background-color: #221016;
-  }
-  
-  .mobileNavLink {
-    color: #e5e7eb;
-    border-bottom-color: #374151;
+  .iconButton:hover,
+  .userAvatar:hover {
+    background: var(--stone);
   }
 }
 
-/* Responsive styles */
+/* Responsive */
+@media (max-width: 1024px) {
+  .searchContainer {
+    width: 240px;
+  }
+}
+
 @media (max-width: 768px) {
-  .header {
-    padding: 1rem;
+  .headerContainer {
+    padding: 1rem 1.5rem;
   }
   
-  .container {
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  .logoSection {
-    justify-content: space-between;
-    flex: none;
-  }
-  
-  .desktopNav {
+  .desktopNav,
+  .searchContainer {
     display: none;
   }
   
@@ -278,33 +322,14 @@
     display: flex;
   }
   
-  .actionsSection {
-    flex: none;
-    gap: 0.5rem;
-  }
-  
-  .searchContainer {
-    display: none;
-  }
-  
-  .buttons {
-    gap: 0.25rem;
-  }
-  
-  .iconButton {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
-  
-  .userAvatar {
-    width: 2.25rem;
-    height: 2.25rem;
+  .actions {
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .logoText {
-    font-size: 1.25rem;
+  .headerContainer {
+    padding: 1rem;
   }
   
   .logoIcon {
@@ -312,30 +337,33 @@
     height: 1.75rem;
   }
   
-  .actionsSection {
-    gap: 0.25rem;
+  .logoPrimary {
+    font-size: 0.8rem;
+  }
+  
+  .logoSecondary {
+    font-size: 1rem;
+  }
+  
+  .actionIcons {
+    gap: 0.75rem;
   }
   
   .iconButton {
-    width: 2rem;
-    height: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
   
   .userAvatar {
-    width: 2rem;
-    height: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
-}
-
-/* Animation for mobile menu button when active */
-.mobileMenuButton.active .hamburgerLine:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobileMenuButton.active .hamburgerLine:nth-child(2) {
-  opacity: 0;
-}
-
-.mobileMenuButton.active .hamburgerLine:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  
+  .mobileNavContent {
+    padding: 5rem 1.5rem 2rem;
+  }
+  
+  .mobileCloseButton {
+    right: 1.5rem;
+  }
 }
