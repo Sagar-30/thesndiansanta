@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Header.module.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const Header = () => {
         {/* Logo */}
         <div className={styles.logo}>
           <div className={styles.logoIcon}>
-            <img src="/logo.svg" alt="Logo" style={{ display: 'block', height: '4rem', width: 'auto', objectFit: 'contain' }} />
+            <img src="logo.svg" alt="Logo" style={{ display: 'block', height: '4rem', width: 'auto', objectFit: 'contain' }} />
           </div>
         </div>
 
@@ -75,10 +76,12 @@ const Header = () => {
 
             <div className={styles.userAvatar}>
               <div className={styles.avatarIcon}>
+                <Link to="/login">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
                   <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" strokeWidth="1.5"/>
                 </svg>
+                </Link>
               </div>
             </div>
           </div>

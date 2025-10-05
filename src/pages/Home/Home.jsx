@@ -398,7 +398,7 @@ const Home = () => {
                 </svg>
               </button>
               <button className={styles.ctaSecondary}>
-                Book Consultation
+                Customize with love
               </button>
             </div>
             <div className={styles.ctaFeatures}>

@@ -58,6 +58,7 @@ const Categories = () => {
 
   const filterButtons = [
     { id: 'price', label: 'Price' },
+    { id: 'price1', label: 'Price1' },
     { id: 'occasion', label: 'Occasion' },
     { id: 'popularity', label: 'Popularity' }
   ];
