@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const Navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,11 +27,11 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className={styles.desktopNav}>
-          <a href="/" className={`${styles.navLink} ${styles.navLinkActive}`}>Home</a>
-          <a href="/categories" className={styles.navLink}>Categories</a>
-          <a href="/collection" className={styles.navLink}>Collections</a>
-          <a href="/occasions" className={styles.navLink}>Occasions</a>
-          <a href="/bespoke" className={styles.navLink}>Customize</a>
+          <Link to="/" className={`${styles.navLink} ${styles.navLinkActive}`}>Home</Link>
+          <Link to="/categories" className={styles.navLink}>Categories</Link>
+          <Link to="/collections" className={styles.navLink}>Collections</Link>
+          <Link to="/occasions" className={styles.navLink}>Occasions</Link>
+          <Link to="/bespoke" className={styles.navLink}>Customize</Link>
         </nav>
 
         {/* Actions */}
@@ -54,7 +55,7 @@ const Header = () => {
 
           {/* Icons */}
           <div className={styles.actionIcons}>
-            <button className={styles.iconButton} aria-label="Wishlist">
+            <button className={styles.iconButton} aria-label="Favorite" onClick={()=> Navigate("/favorite")}>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
                       stroke="currentColor" 
@@ -63,7 +64,7 @@ const Header = () => {
               </svg>
             </button>
 
-            <button className={styles.iconButton} aria-label="Cart">
+            <button className={styles.iconButton} aria-label="Cart" onClick={()=> Navigate("/cart")}>
               <div className={styles.cartBadge}>3</div>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 3h2l.4 2m0 0L7 13h10l2-8H5.4zM7 13l-2.3 2.3c-.4.4-.1 1.2.5 1.2H17m0 0v3a2 2 0 11-4 0v-3m4 0h-4" 

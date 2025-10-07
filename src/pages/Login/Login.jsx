@@ -27,7 +27,7 @@ const Login = () => {
         {/* Left Side - Branding */}
         <div className={styles.brandSection}>
           <div className={styles.brandContent}>
-            {/* <Link to="/" className={styles.logo}> */}
+            <Link className={styles.logo}>
               <div className={styles.logoIcon}>
                 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="8" y="8" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
@@ -36,10 +36,10 @@ const Login = () => {
                 </svg>
               </div>
               <div className={styles.logoText}>
-                <span className={styles.logoPrimary}>Indian</span>
+                <span className={styles.logoPrimary}>The Indian</span>
                 <span className={styles.logoSecondary}>Santa</span>
               </div>
-            {/* </Link> */}
+            </Link>
             
             <div className={styles.brandMessage}>
               <h2>Welcome Back</h2>

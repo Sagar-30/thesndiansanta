@@ -1,0 +1,764 @@
+.occasionsPage {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.heroSection {
+  padding: 4rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--pale-teal) 0%, transparent 100%);
+  margin-bottom: 4rem;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.heroBadge span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Section Headers */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.sectionCount {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Featured Section */
+.featuredSection {
+  margin-bottom: 4rem;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.featuredCard {
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.featuredCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.featuredCard.teal {
+  background: linear-gradient(135deg, var(--deep-teal) 0%, var(--rich-teal) 100%);
+}
+
+.featuredCard.gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
+  color: var(--charcoal);
+}
+
+.featuredContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.featuredIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.featuredName {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.featuredDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.featuredMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemCount {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.exploreLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.exploreLink:hover {
+  gap: 0.75rem;
+}
+
+.exploreLink svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Filters Section */
+.filtersSection {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.filtersContainer {
+  text-align: center;
+}
+
+.filterLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filterButtonActive {
+  background: var(--primary);
+  color: var(--pearl);
+  border-color: var(--primary);
+}
+
+.filterButtonActive:hover {
+  background: var(--rich-teal);
+  color: var(--pearl);
+}
+
+.filterCount {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Occasions Grid */
+.occasionsSection {
+  margin-bottom: 4rem;
+}
+
+.occasionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.occasionCard {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.occasionCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(201, 169, 110, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.occasionImage {
+  text-align: center;
+}
+
+.occasionIcon {
+  font-size: 3rem;
+  color: var(--gold);
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.featuredBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--gold);
+  color: var(--charcoal);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.featuredBadge svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cardContent {
+  margin-bottom: 1.5rem;
+}
+
+.occasionName {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.occasionDescription {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.occasionMeta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metaLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metaValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.metaCategory {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary);
+  padding: 0.25rem 0.5rem;
+  background: var(--pale-teal);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.primaryButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--pearl);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+  background: var(--rich-teal);
+  transform: translateY(-1px);
+}
+
+.primaryButton svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.secondaryButton:hover {
+  background: var(--pale-teal);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.secondaryButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* No Results */
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.noResultsIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.noResultsTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.noResultsDescription {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.resetFilters {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--pearl);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resetFilters:hover {
+  background: var(--rich-teal);
+  transform: translateY(-1px);
+}
+
+/* Gift Guide Section */
+.giftGuideSection {
+  background: linear-gradient(135deg, var(--deep-teal) 0%, var(--rich-teal) 100%);
+  border-radius: 20px;
+  padding: 4rem;
+  margin-bottom: 4rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.giftGuideSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="goldPattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23c9a96e" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23goldPattern)"/></svg>');
+  pointer-events: none;
+}
+
+.giftGuideContent {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.guideTitle {
+  font-size: 2.25rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.guideDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.guideActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.guidePrimary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--gold);
+  color: var(--charcoal);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.guidePrimary:hover {
+  background: var(--light-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+}
+
+.guidePrimary svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.guideSecondary {
+  padding: 1rem 2rem;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.guideSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.guideVisual {
+  text-align: center;
+}
+
+.guideIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.guideIcon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+.guideIcon:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.guideIcon:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Tips Section */
+.tipsSection {
+  margin-bottom: 4rem;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tipCard {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.tipCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 25px rgba(201, 169, 110, 0.1);
+}
+
+.tipIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.tipTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.tipDescription {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .featuredGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .giftGuideContent {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .guideIcons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .heroSection {
+    padding: 3rem 0 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .occasionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .occasionMeta {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .cardActions {
+    flex-direction: column;
+  }
+
+  .featuredCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .giftGuideSection {
+    padding: 3rem 2rem;
+  }
+
+  .guideTitle {
+    font-size: 1.75rem;
+  }
+
+  .guideActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .guidePrimary,
+  .guideSecondary {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .filterButtons {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .filterButton {
+    white-space: nowrap;
+  }
+
+  .featuredMeta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .giftGuideSection {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .heroSection {
+    background: linear-gradient(135deg, var(--stone) 0%, transparent 100%);
+  }
+
+  .occasionCard,
+  .tipCard {
+    background: var(--surface);
+  }
+
+  .noResults {
+    background: var(--surface);
+  }
+}
