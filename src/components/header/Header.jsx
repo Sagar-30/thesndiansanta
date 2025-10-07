@@ -31,7 +31,7 @@ const Header = () => {
           <Link to="/categories" className={styles.navLink}>Categories</Link>
           <Link to="/collections" className={styles.navLink}>Collections</Link>
           <Link to="/occasions" className={styles.navLink}>Occasions</Link>
-          <Link to="/bespoke" className={styles.navLink}>Customize</Link>
+          <Link to="/customize" className={styles.navLink}>Customize</Link>
         </nav>
 
         {/* Actions */}
@@ -76,13 +76,11 @@ const Header = () => {
             </button>
 
             <div className={styles.userAvatar}>
-              <div className={styles.avatarIcon}>
-                <Link to="/login">
+              <div className={styles.avatarIcon} onClick={()=> Navigate("/login")}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
                   <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" strokeWidth="1.5"/>
                 </svg>
-                </Link>
               </div>
             </div>
           </div>

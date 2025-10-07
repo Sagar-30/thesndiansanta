@@ -9,6 +9,7 @@ import Favorites from './pages/Favorites/Favorites';
 import Cart from './pages/Cart/Cart';
 import Collections from './pages/Collections/Collections';
 import Occasions from './pages/Occasions/Occasions';
+import Customize from './pages/Customize/Customize';
 
 import styles from './App.module.css';
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/cart" element={<Cart/>} />
             <Route path="/collections" element={<Collections />} />
             <Route path="/occasions" element={<Occasions />} />
+            <Route path="/customize" element={<Customize />} />
           </Routes>
         </main>
       </div>
