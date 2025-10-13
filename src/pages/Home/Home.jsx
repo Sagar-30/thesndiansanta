@@ -1,348 +1,318 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const featuredCollections = [
-    {
-      id: 1,
-      name: "Timeless Elegance",
-      description: "Classic pieces that never go out of style",
-      items: "24 items",
-      image: "🕰️"
-    },
-    {
-      id: 2,
-      name: "Modern Luxury",
-      description: "Contemporary designs for the discerning",
-      items: "18 items",
-      image: "✨"
-    },
-    {
-      id: 3,
-      name: "Artisan Crafted",
-      description: "Handmade pieces with exceptional detail",
-      items: "16 items",
-      image: "👐"
-    },
-    {
-      id: 4,
-      name: "Heritage Pieces",
-      description: "Items with history and character",
-      items: "22 items",
-      image: "🏺"
-    }
-  ];
+  const [activeTab, setActiveTab] = useState('Birthdays');
+  const navigate = useNavigate();
 
-  const luxuryProducts = [
+  const categoryTabs = ['Birthdays', 'Anniversaries', 'Weddings', 'New Baby', 'Just Because', 'Thank You', 'Congratulations', 'Corporate'];
+
+  const giftSections = [
     {
       id: 1,
-      name: "Italian Leather Journal",
-      price: "280",
-      description: "Handcrafted leather with gold foil detailing",
-      image: "📔",
-      category: "Writing"
+      title: 'For Her',
+      items: [
+        { 
+          name: 'Luxury Handbag', 
+          price: '$149', 
+          image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=400&fit=crop' 
+        },
+        { 
+          name: 'Pearl Jewelry Set', 
+          price: '$89', 
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop' 
+        }
+      ],
+      bgColor: 'var(--pale-teal)'
     },
     {
       id: 2,
-      name: "Crystal Decanter Set",
-      price: "450",
-      description: "Lead-free crystal with walnut base",
-      image: "🍷",
-      category: "Barware"
+      title: 'For Him',
+      items: [
+        { 
+          name: 'Leather Watch', 
+          price: '$199', 
+          image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=400&fit=crop' 
+        },
+        { 
+          name: 'Premium Grooming Kit', 
+          price: '$75', 
+          image: 'https://images.unsplash.com/photo-1594736797933-d0d69c3bc58d?w=400&h=400&fit=crop' 
+        }
+      ],
+      bgColor: 'var(--pale-teal)'
     },
     {
       id: 3,
-      name: "Cashmere Travel Set",
-      price: "320",
-      description: "Ultra-soft cashmere blanket and pillow",
-      image: "🧣",
-      category: "Travel"
+      title: 'Experiences',
+      items: [
+        { 
+          name: 'Spa Day Voucher', 
+          price: '$120', 
+          image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&fit=crop' 
+        },
+        { 
+          name: 'Adventure Sports', 
+          price: '$150', 
+          image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=400&fit=crop' 
+        }
+      ],
+      bgColor: 'var(--pale-teal)'
     },
     {
       id: 4,
-      name: "Artisan Ceramic Set",
-      price: "190",
-      description: "Hand-thrown ceramics with mineral glaze",
-      image: "🍶",
-      category: "Home"
+      title: 'Gourmet',
+      items: [
+        { 
+          name: 'Artisan Chocolate Box', 
+          price: '$45', 
+          image: 'https://images.unsplash.com/photo-1586796878722-1f7795136c79?w=400&h=400&fit=crop' 
+        },
+        { 
+          name: 'Premium Wine Collection', 
+          price: '$85', 
+          image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=400&fit=crop' 
+        }
+      ],
+      bgColor: 'var(--pale-teal)'
     },
     {
       id: 5,
-      name: "Wooden Watch Box",
-      price: "380",
-      description: "Solid walnut with velvet lining",
-      image: "⌚",
-      category: "Accessories"
+      title: 'Home & Living',
+      items: [
+        { 
+          name: 'Ceramic Dinner Set', 
+          price: '$65', 
+          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop' 
+        },
+        { 
+          name: 'Scented Candles Set', 
+          price: '$35', 
+          image: 'https://images.unsplash.com/photo-1606778303241-9cb3494d7e9b?w=400&h=400&fit=crop' 
+        }
+      ],
+      bgColor: 'var(--pale-teal)'
     },
     {
       id: 6,
-      name: "Brass Desk Set",
-      price: "520",
-      description: "Solid brass with marble accents",
-      image: "✒️",
-      category: "Office"
+      title: 'Personalized',
+      items: [
+        { 
+          name: 'Custom Engraved Jewelry', 
+          price: '$99', 
+          image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop' 
+        },
+        { 
+          name: 'Personalized Watch', 
+          price: '$155', 
+          image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&h=400&fit=crop' 
+        }
+      ],
+      bgColor: 'var(--pale-teal)'
     }
   ];
 
-  const occasions = [
+  const highlightedSections = [
     {
       id: 1,
-      name: "Anniversary",
-      description: "Celebrate lasting love",
-      icon: "💝"
+      title: 'LAST-MINUTE GIFTS',
+      subtitle: 'Express delivery available',
+      icon: '⚡',
+      bgColor: 'var(--light-gold)'
     },
     {
       id: 2,
-      name: "Birthday",
-      description: "Mark another year",
-      icon: "🎂"
-    },
-    {
-      id: 3,
-      name: "Wedding",
-      description: "Begin a new journey",
-      icon: "💒"
-    },
-    {
-      id: 4,
-      name: "Corporate",
-      description: "Professional appreciation",
-      icon: "🏢"
-    },
-    {
-      id: 5,
-      name: "Graduation",
-      description: "Celebrate achievement",
-      icon: "🎓"
-    },
-    {
-      id: 6,
-      name: "Housewarming",
-      description: "Welcome home",
-      icon: "🏠"
+      title: 'PERSONALISED PRESENTS',
+      subtitle: 'Add a special touch',
+      icon: '🎀',
+      bgColor: 'var(--light-gold)'
     }
   ];
 
-  const quickCategories = [
-    { id: 1, name: "Personalized Gifts", icon: "🎁", color: "#c9a96e" },
-    { id: 2, name: "Luxury Hampers", icon: "🧺", color: "#0a3d3f" },
-    { id: 3, name: "Jewelry", icon: "💎", color: "#c9a96e" },
-    { id: 4, name: "Home Decor", icon: "🏠", color: "#0a3d3f" },
-    { id: 5, name: "Office Gifts", icon: "💼", color: "#c9a96e" },
-    { id: 6, name: "Festive Special", icon: "🎊", color: "#0a3d3f" }
-  ];
+  // Gift Finder State
+  const [giftFinder, setGiftFinder] = useState({
+    recipient: '',
+    occasion: '',
+    budget: '',
+    personalized: ''
+  });
 
-  const Navigate = useNavigate();
+  const handleGiftFinderChange = (field, value) => {
+    setGiftFinder(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleFindGifts = () => {
+    navigate('/search', { 
+      state: { 
+        filters: giftFinder 
+      } 
+    });
+  };
 
   return (
     <div className={styles.home}>
-      {/* Header Banner */}
-      <div className={styles.headerBanner}>
-        <span>🎁 Free Gift Wrapping on All Orders | 🚚 Free Shipping Above 1200</span>
-      </div>
-
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>
-              Thoughtful Gifts for <span className={styles.highlight}>Every Occasion</span>
-            </h1>
-            <p className={styles.heroSubtitle}>
-              Curated luxury gifts that speak volumes. From birthdays to milestones, find the perfect expression of your appreciation.
-            </p>
-            
-            <div className={styles.heroActions}>
-              <button 
-                className={styles.primaryBtn}
-                onClick={() => Navigate('/collections')}
-              >
-                Shop All Collections
-              </button>
-              <button className={styles.secondaryBtn}>
-                Personalize Your Gift
-              </button>
-            </div>
-
-            <div className={styles.heroFeatures}>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>🎀</span>
-                <span>Free Gift Wrap</span>
-              </div>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>🚚</span>
-                <span>Fast Delivery</span>
-              </div>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>💝</span>
-                <span>Easy Returns</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Categories */}
-      <section className={styles.quickCategories}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Shop by Category</h2>
-          <div className={styles.categoriesGrid}>
-            {quickCategories.map((category) => (
-              <div 
-                key={category.id} 
-                className={styles.categoryCard}
-                onClick={() => Navigate(`/category/${category.name.toLowerCase().replace(' ', '-')}`)}
-              >
-                <div 
-                  className={styles.categoryIcon}
-                  style={{ backgroundColor: category.color }}
+      {/* Main Content - Full Width */}
+      <div className={styles.container}>
+        
+        {/* Category Tabs */}
+        <section className={styles.tabsSection}>
+          <div className={styles.tabsContainer}>
+            <div className={styles.tabs}>
+              {categoryTabs.map((tab) => (
+                <button
+                  key={tab}
+                  className={`${styles.tab} ${activeTab === tab ? styles.active : ''}`}
+                  onClick={() => setActiveTab(tab)}
                 >
-                  {category.icon}
-                </div>
-                <span className={styles.categoryName}>{category.name}</span>
-              </div>
-            ))}
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Featured Products */}
-      <section className={styles.featuredProducts}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Best Selling Gifts</h2>
-            <button className={styles.viewAllBtn} onClick={() => Navigate('/products')}>
-              View All
-            </button>
-          </div>
-          
-          <div className={styles.productsGrid}>
-            {luxuryProducts.slice(0, 4).map((product) => (
-              <div key={product.id} className={styles.productCard}>
-                <div className={styles.productImage}>
-                  <span className={styles.productIcon}>{product.image}</span>
-                  <button className={styles.wishlistBtn}>❤️</button>
-                </div>
-                <div className={styles.productInfo}>
-                  <span className={styles.productCategory}>{product.category}</span>
-                  <h3 className={styles.productName}>{product.name}</h3>
-                  <p className={styles.productDescription}>{product.description}</p>
-                  <div className={styles.productFooter}>
-                    <span className={styles.productPrice}>{product.price}</span>
-                    <button className={styles.addToCartBtn}>Add to Cart</button>
-                  </div>
-                </div>
+        {/* Highlighted Sections */}
+        <section className={styles.highlights}>
+          {highlightedSections.map((section) => (
+            <div 
+              key={section.id} 
+              className={styles.highlightCard}
+              style={{ backgroundColor: section.bgColor }}
+            >
+              <div className={styles.highlightIcon}>{section.icon}</div>
+              <div className={styles.highlightContent}>
+                <h3>{section.title}</h3>
+                <p>{section.subtitle}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <button className={styles.exploreBtn}>Explore</button>
+            </div>
+          ))}
+        </section>
 
-      {/* Occasions Section */}
-      <section className={styles.occasions}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Gifts for Every Occasion</h2>
-          <div className={styles.occasionsGrid}>
-            {occasions.map((occasion) => (
+        {/* Gift Categories Grid */}
+        <section className={styles.categoriesSection}>
+          <h2 className={styles.sectionTitle}>Gift Categories</h2>
+          <div className={styles.categoriesGrid}>
+            {giftSections.map((section) => (
               <div 
-                key={occasion.id} 
-                className={styles.occasionCard}
-                onClick={() => Navigate(`/occasion/${occasion.name.toLowerCase()}`)}
+                key={section.id} 
+                className={styles.categorySection}
               >
-                <div className={styles.occasionIcon}>{occasion.icon}</div>
-                <div className={styles.occasionInfo}>
-                  <h3>{occasion.name}</h3>
-                  <p>{occasion.description}</p>
+                <div className={styles.sectionHeader}>
+                  <h3 className={styles.sectionName}>{section.title}</h3>
+                  <button className={styles.moreBtn}>More</button>
                 </div>
-                <span className={styles.arrow}>→</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Collections */}
-      <section className={styles.collections}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Curated Collections</h2>
-            <p className={styles.sectionSubtitle}>
-              Handpicked selections for the discerning gift-giver
-            </p>
-          </div>
-          
-          <div className={styles.collectionsGrid}>
-            {featuredCollections.map((collection) => (
-              <div key={collection.id} className={styles.collectionCard}>
-                <div className={styles.collectionImage}>
-                  <span className={styles.collectionEmoji}>{collection.image}</span>
-                </div>
-                <div className={styles.collectionContent}>
-                  <h3>{collection.name}</h3>
-                  <p>{collection.description}</p>
-                  <div className={styles.collectionMeta}>
-                    <span>{collection.items}</span>
-                    <button className={styles.exploreBtn}>
-                      Explore →
-                    </button>
-                  </div>
+                <div className={styles.imagesGrid}>
+                  {section.items.map((item, index) => (
+                    <div key={index} className={styles.imageCard}>
+                      <div 
+                        className={styles.itemImage}
+                        style={{ backgroundColor: section.bgColor }}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className={styles.productImage}
+                        />
+                      </div>
+                      <div className={styles.itemInfo}>
+                        <span className={styles.itemName}>{item.name}</span>
+                        <span className={styles.itemPrice}>{item.price}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Banner */}
-      <section className={styles.ctaBanner}>
-        <div className={styles.container}>
-          <div className={styles.ctaContent}>
-            <h2>Need Help Choosing?</h2>
-            <p>Our gift experts are here to help you find the perfect present</p>
-            <div className={styles.ctaActions}>
-              <button className={styles.ctaBtn}>Chat with Expert</button>
-              <button className={styles.ctaBtnOutline}>Call Us Now</button>
+        {/* Find Perfect Gift Section */}
+        <section className={styles.giftFinderSection}>
+          <div className={styles.giftFinderCard}>
+            <h2 className={styles.finderTitle}>Find Your Perfect Gift</h2>
+            <p className={styles.finderSubtitle}>Answer a few questions and we'll recommend the ideal gift</p>
+            
+            <div className={styles.finderForm}>
+              <div className={styles.formGroup}>
+                <label>Who are you gifting to?</label>
+                <select 
+                  value={giftFinder.recipient}
+                  onChange={(e) => handleGiftFinderChange('recipient', e.target.value)}
+                  className={styles.formSelect}
+                >
+                  <option value="">Select Recipient</option>
+                  <option value="partner">Partner / Spouse</option>
+                  <option value="parent">Parent</option>
+                  <option value="friend">Friend</option>
+                  <option value="colleague">Colleague</option>
+                  <option value="child">Child</option>
+                  <option value="sibling">Sibling</option>
+                </select>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Occasion</label>
+                <select 
+                  value={giftFinder.occasion}
+                  onChange={(e) => handleGiftFinderChange('occasion', e.target.value)}
+                  className={styles.formSelect}
+                >
+                  <option value="">Select Occasion</option>
+                  <option value="birthday">Birthday</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="graduation">Graduation</option>
+                  <option value="thankyou">Thank You</option>
+                  <option value="justbecause">Just Because</option>
+                </select>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Budget</label>
+                <select 
+                  value={giftFinder.budget}
+                  onChange={(e) => handleGiftFinderChange('budget', e.target.value)}
+                  className={styles.formSelect}
+                >
+                  <option value="">Select Budget</option>
+                  <option value="under50">Under $50</option>
+                  <option value="50-100">$50 - $100</option>
+                  <option value="100-200">$100 - $200</option>
+                  <option value="200-500">$200 - $500</option>
+                  <option value="over500">Over $500</option>
+                </select>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Personalization</label>
+                <select 
+                  value={giftFinder.personalized}
+                  onChange={(e) => handleGiftFinderChange('personalized', e.target.value)}
+                  className={styles.formSelect}
+                >
+                  <option value="">Select Option</option>
+                  <option value="yes">Yes, personalize it</option>
+                  <option value="no">No, ready-made is fine</option>
+                  <option value="either">Either works</option>
+                </select>
+              </div>
+
+              <button 
+                className={styles.findGiftsBtn}
+                onClick={handleFindGifts}
+                disabled={!giftFinder.recipient || !giftFinder.occasion}
+              >
+                Find Perfect Gifts
+              </button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Trust Indicators */}
-      <section className={styles.trustIndicators}>
-        <div className={styles.container}>
-          <div className={styles.trustGrid}>
-            <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>⭐</span>
-              <div>
-                <h4>4.9/5 Stars</h4>
-                <p>Customer Reviews</p>
-              </div>
-            </div>
-            <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>🚚</span>
-              <div>
-                <h4>Free Shipping</h4>
-                <p>Above 1200</p>
-              </div>
-            </div>
-            <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>💝</span>
-              <div>
-                <h4>Gift Wrap</h4>
-                <p>Complimentary</p>
-              </div>
-            </div>
-            <div className={styles.trustItem}>
-              <span className={styles.trustIcon}>↩️</span>
-              <div>
-                <h4>Easy Returns</h4>
-                <p>7-Day Policy</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
