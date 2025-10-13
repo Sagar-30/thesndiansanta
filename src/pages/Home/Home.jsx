@@ -38,7 +38,7 @@ const Home = () => {
     {
       id: 1,
       name: "Italian Leather Journal",
-      price: "$280",
+      price: "280",
       description: "Handcrafted leather with gold foil detailing",
       image: "📔",
       category: "Writing"
@@ -46,7 +46,7 @@ const Home = () => {
     {
       id: 2,
       name: "Crystal Decanter Set",
-      price: "$450",
+      price: "450",
       description: "Lead-free crystal with walnut base",
       image: "🍷",
       category: "Barware"
@@ -54,7 +54,7 @@ const Home = () => {
     {
       id: 3,
       name: "Cashmere Travel Set",
-      price: "$320",
+      price: "320",
       description: "Ultra-soft cashmere blanket and pillow",
       image: "🧣",
       category: "Travel"
@@ -62,7 +62,7 @@ const Home = () => {
     {
       id: 4,
       name: "Artisan Ceramic Set",
-      price: "$190",
+      price: "190",
       description: "Hand-thrown ceramics with mineral glaze",
       image: "🍶",
       category: "Home"
@@ -70,7 +70,7 @@ const Home = () => {
     {
       id: 5,
       name: "Wooden Watch Box",
-      price: "$380",
+      price: "380",
       description: "Solid walnut with velvet lining",
       image: "⌚",
       category: "Accessories"
@@ -78,7 +78,7 @@ const Home = () => {
     {
       id: 6,
       name: "Brass Desk Set",
-      price: "$520",
+      price: "520",
       description: "Solid brass with marble accents",
       image: "✒️",
       category: "Office"
@@ -124,178 +124,117 @@ const Home = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Priya Sharma",
-      role: "Luxury Brand Director",
-      text: "The attention to detail and quality of materials is exceptional. Each piece feels like it was made just for me.",
-      avatar: "👩‍💼"
-    },
-    {
-      id: 2,
-      name: "Rajiv Malhotra",
-      role: "Hotel Chain Owner",
-      text: "Our corporate clients consistently praise the sophistication of gifts from Indian Santa. It elevates every occasion.",
-      avatar: "👨‍💼"
-    },
-    {
-      id: 3,
-      name: "Ananya Patel",
-      role: "Art Collector",
-      text: "Finally, a gifting service that understands true luxury isn't about being loud, but about being meaningful.",
-      avatar: "👩‍🎨"
-    }
-  ];
-
-  const values = [
-    {
-      id: 1,
-      title: "Quality Craftsmanship",
-      description: "Every item is selected for its exceptional quality and attention to detail.",
-      icon: "🔍"
-    },
-    {
-      id: 2,
-      title: "Timeless Design",
-      description: "We focus on pieces that transcend trends and become lifelong treasures.",
-      icon: "⏳"
-    },
-    {
-      id: 3,
-      title: "Personal Service",
-      description: "Our concierge team ensures every gift is perfectly matched to its recipient.",
-      icon: "🤝"
-    }
+  const quickCategories = [
+    { id: 1, name: "Personalized Gifts", icon: "🎁", color: "#c9a96e" },
+    { id: 2, name: "Luxury Hampers", icon: "🧺", color: "#0a3d3f" },
+    { id: 3, name: "Jewelry", icon: "💎", color: "#c9a96e" },
+    { id: 4, name: "Home Decor", icon: "🏠", color: "#0a3d3f" },
+    { id: 5, name: "Office Gifts", icon: "💼", color: "#c9a96e" },
+    { id: 6, name: "Festive Special", icon: "🎊", color: "#0a3d3f" }
   ];
 
   const Navigate = useNavigate();
 
   return (
-    <div className={styles.minimalHome}>
+    <div className={styles.home}>
+      {/* Header Banner */}
+      <div className={styles.headerBanner}>
+        <span>🎁 Free Gift Wrapping on All Orders | 🚚 Free Shipping Above 1200</span>
+      </div>
+
       {/* Hero Section */}
-      <section className={styles.minimalHero}>
+      <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <div className={styles.heroBadge}>
-            {/* <span>Established 2025</span> */}
-            <span>Where Elegance Meets Emotion</span> 
-          </div>
+          <div className={styles.heroText}>
+            <h1 className={styles.heroTitle}>
+              Thoughtful Gifts for <span className={styles.highlight}>Every Occasion</span>
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Curated luxury gifts that speak volumes. From birthdays to milestones, find the perfect expression of your appreciation.
+            </p>
+            
+            <div className={styles.heroActions}>
+              <button 
+                className={styles.primaryBtn}
+                onClick={() => Navigate('/collections')}
+              >
+                Shop All Collections
+              </button>
+              <button className={styles.secondaryBtn}>
+                Personalize Your Gift
+              </button>
+            </div>
 
-          <h1 className={styles.heroTitle}>
-            <span className={styles.titleLine}>Timeless Gifts</span>
-            <span className={styles.titleLine}>Made for</span>
-            <span className={styles.titleAccent}>Every Occasion</span>
-          </h1>
-
-          <p className={styles.heroSubtitle}>
-            From birthdays to milestones, explore elegant gifts that blend craftsmanship with meaning.
-          </p>
-
-          <div className={styles.heroActions}>
-            <button className={styles.primaryCta} onClick={() =>{ Navigate('/collections')}}>
-              <span>Explore Collections</span>
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-
-            {/* Personalize Your Gift */}
-            <button className={styles.secondaryCta}>
-              Craft Your Story
-            </button>
+            <div className={styles.heroFeatures}>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>🎀</span>
+                <span>Free Gift Wrap</span>
+              </div>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>🚚</span>
+                <span>Fast Delivery</span>
+              </div>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>💝</span>
+                <span>Easy Returns</span>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Hero Indicators */}
-        {/* <div className={styles.heroIndicators}>
-          <div className={styles.indicator}>
-            <div className={styles.indicatorNumber}>500+</div>
-            <div className={styles.indicatorText}>Luxury Items</div>
-          </div>
-          <div className={styles.indicator}>
-            <div className={styles.indicatorNumber}>Global</div>
-            <div className={styles.indicatorText}>Delivery</div>
-          </div>
-          <div className={styles.indicator}>
-            <div className={styles.indicatorNumber}>24/7</div>
-            <div className={styles.indicatorText}>Concierge</div>
-          </div>
-        </div> */}
       </section>
 
-      {/* Featured Collections */}
-      <section className={styles.featuredCollections}>
+      {/* Quick Categories */}
+      <section className={styles.quickCategories}>
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Curated Collections</h2>
-            <p className={styles.sectionSubtitle}>
-              Each collection is thoughtfully assembled around themes of timeless elegance and exceptional craftsmanship.
-            </p>
-          </div>
-
-          <div className={styles.collectionsGrid}>
-            {featuredCollections.map((collection) => (
-              <div key={collection.id} className={styles.collectionCard}>
-                <div className={styles.collectionImage}>
-                  <span className={styles.collectionIcon}>{collection.image}</span>
+          <h2 className={styles.sectionTitle}>Shop by Category</h2>
+          <div className={styles.categoriesGrid}>
+            {quickCategories.map((category) => (
+              <div 
+                key={category.id} 
+                className={styles.categoryCard}
+                onClick={() => Navigate(`/category/${category.name.toLowerCase().replace(' ', '-')}`)}
+              >
+                <div 
+                  className={styles.categoryIcon}
+                  style={{ backgroundColor: category.color }}
+                >
+                  {category.icon}
                 </div>
-                <div className={styles.collectionContent}>
-                  <h3 className={styles.collectionName}>{collection.name}</h3>
-                  <p className={styles.collectionDescription}>{collection.description}</p>
-                  <div className={styles.collectionMeta}>
-                    <span className={styles.collectionItems}>{collection.items}</span>
-                    <button className={styles.collectionButton}>
-                      Explore
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+                <span className={styles.categoryName}>{category.name}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Luxury Products */}
-      <section className={styles.luxuryProducts}>
+      {/* Featured Products */}
+      <section className={styles.featuredProducts}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Exceptional Selections</h2>
-            <p className={styles.sectionSubtitle}>
-              Handpicked items that embody the essence of understated luxury and lasting quality.
-            </p>
+            <h2 className={styles.sectionTitle}>Best Selling Gifts</h2>
+            <button className={styles.viewAllBtn} onClick={() => Navigate('/products')}>
+              View All
+            </button>
           </div>
-
+          
           <div className={styles.productsGrid}>
-            {luxuryProducts.map((product) => (
+            {luxuryProducts.slice(0, 4).map((product) => (
               <div key={product.id} className={styles.productCard}>
                 <div className={styles.productImage}>
                   <span className={styles.productIcon}>{product.image}</span>
+                  <button className={styles.wishlistBtn}>❤️</button>
                 </div>
-                <div className={styles.productContent}>
-                  <div className={styles.productCategory}>{product.category}</div>
+                <div className={styles.productInfo}>
+                  <span className={styles.productCategory}>{product.category}</span>
                   <h3 className={styles.productName}>{product.name}</h3>
                   <p className={styles.productDescription}>{product.description}</p>
                   <div className={styles.productFooter}>
                     <span className={styles.productPrice}>{product.price}</span>
-                    <button className={styles.productButton}>
-                      View Details
-                    </button>
+                    <button className={styles.addToCartBtn}>Add to Cart</button>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className={styles.productsCta}>
-            <button className={styles.viewAllButton}>
-              View Complete Collection
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
           </div>
         </div>
       </section>
@@ -303,51 +242,50 @@ const Home = () => {
       {/* Occasions Section */}
       <section className={styles.occasions}>
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>For Every Moment</h2>
-            <p className={styles.sectionSubtitle}>
-              Thoughtful gifts tailored to life's most meaningful occasions.
-            </p>
-          </div>
-
+          <h2 className={styles.sectionTitle}>Gifts for Every Occasion</h2>
           <div className={styles.occasionsGrid}>
             {occasions.map((occasion) => (
-              <div key={occasion.id} className={styles.occasionCard}>
+              <div 
+                key={occasion.id} 
+                className={styles.occasionCard}
+                onClick={() => Navigate(`/occasion/${occasion.name.toLowerCase()}`)}
+              >
                 <div className={styles.occasionIcon}>{occasion.icon}</div>
-                <div className={styles.occasionContent}>
-                  <h3 className={styles.occasionName}>{occasion.name}</h3>
-                  <p className={styles.occasionDescription}>{occasion.description}</p>
+                <div className={styles.occasionInfo}>
+                  <h3>{occasion.name}</h3>
+                  <p>{occasion.description}</p>
                 </div>
-                <button className={styles.occasionButton}>
-                  Explore Gifts
-                </button>
+                <span className={styles.arrow}>→</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className={styles.testimonials}>
+      {/* Collections */}
+      <section className={styles.collections}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Trusted by Connoisseurs</h2>
+            <h2 className={styles.sectionTitle}>Curated Collections</h2>
             <p className={styles.sectionSubtitle}>
-              Discover why discerning individuals choose Indian Santa for their luxury gifting needs.
+              Handpicked selections for the discerning gift-giver
             </p>
           </div>
-
-          <div className={styles.testimonialsGrid}>
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className={styles.testimonialCard}>
-                <div className={styles.testimonialContent}>
-                  <p className={styles.testimonialText}>"{testimonial.text}"</p>
+          
+          <div className={styles.collectionsGrid}>
+            {featuredCollections.map((collection) => (
+              <div key={collection.id} className={styles.collectionCard}>
+                <div className={styles.collectionImage}>
+                  <span className={styles.collectionEmoji}>{collection.image}</span>
                 </div>
-                <div className={styles.testimonialAuthor}>
-                  <div className={styles.authorAvatar}>{testimonial.avatar}</div>
-                  <div className={styles.authorInfo}>
-                    <h4 className={styles.authorName}>{testimonial.name}</h4>
-                    <p className={styles.authorRole}>{testimonial.role}</p>
+                <div className={styles.collectionContent}>
+                  <h3>{collection.name}</h3>
+                  <p>{collection.description}</p>
+                  <div className={styles.collectionMeta}>
+                    <span>{collection.items}</span>
+                    <button className={styles.exploreBtn}>
+                      Explore →
+                    </button>
                   </div>
                 </div>
               </div>
@@ -356,71 +294,50 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className={styles.values}>
+      {/* CTA Banner */}
+      <section className={styles.ctaBanner}>
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Our Philosophy</h2>
-            <p className={styles.sectionSubtitle}>
-              We believe true luxury lies in quality, craftsmanship, and meaningful connections.
-            </p>
-          </div>
-
-          <div className={styles.valuesGrid}>
-            {values.map((value) => (
-              <div key={value.id} className={styles.valueCard}>
-                <div className={styles.valueIcon}>{value.icon}</div>
-                <h3 className={styles.valueTitle}>{value.title}</h3>
-                <p className={styles.valueDescription}>{value.description}</p>
-              </div>
-            ))}
+          <div className={styles.ctaContent}>
+            <h2>Need Help Choosing?</h2>
+            <p>Our gift experts are here to help you find the perfect present</p>
+            <div className={styles.ctaActions}>
+              <button className={styles.ctaBtn}>Chat with Expert</button>
+              <button className={styles.ctaBtnOutline}>Call Us Now</button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className={styles.finalCta}>
+      {/* Trust Indicators */}
+      <section className={styles.trustIndicators}>
         <div className={styles.container}>
-          <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>
-              Begin Your Journey <br />
-              to Extraordinary Gifting
-            </h2>
-            <p className={styles.ctaSubtitle}>
-              Experience the difference that thoughtful curation and exceptional quality can make.
-              Let us help you find the perfect expression of your appreciation.
-            </p>
-            <div className={styles.ctaActions}>
-              <button className={styles.ctaPrimary}>
-                Start Exploring
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </button>
-              <button className={styles.ctaSecondary}>
-                Customize with love
-              </button>
+          <div className={styles.trustGrid}>
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>⭐</span>
+              <div>
+                <h4>4.9/5 Stars</h4>
+                <p>Customer Reviews</p>
+              </div>
             </div>
-            <div className={styles.ctaFeatures}>
-              <div className={styles.feature}>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="currentColor" strokeWidth="2" />
-                </svg>
-                <span>Complimentary Gift Wrapping</span>
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>🚚</span>
+              <div>
+                <h4>Free Shipping</h4>
+                <p>Above 1200</p>
               </div>
-              <div className={styles.feature}>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 15a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v6z" stroke="currentColor" strokeWidth="2" />
-                  <path d="M21 9l-9 6-9-6" stroke="currentColor" strokeWidth="2" />
-                </svg>
-                <span>Global Shipping</span>
+            </div>
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>💝</span>
+              <div>
+                <h4>Gift Wrap</h4>
+                <p>Complimentary</p>
               </div>
-              <div className={styles.feature}>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 15l4-4m0 0l-4-4m4 4H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" />
-                </svg>
-                <span>Easy Returns</span>
+            </div>
+            <div className={styles.trustItem}>
+              <span className={styles.trustIcon}>↩️</span>
+              <div>
+                <h4>Easy Returns</h4>
+                <p>7-Day Policy</p>
               </div>
             </div>
           </div>
