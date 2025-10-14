@@ -5,6 +5,7 @@ import styles from './Collections.module.css';
 const Collections = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const collections = [
     {
@@ -108,10 +109,19 @@ const Collections = () => {
     }
   });
 
+  const toggleMobileFilters = () => {
+    setShowMobileFilters(!showMobileFilters);
+  };
+
+  const handleFilterSelect = (filterId) => {
+    setActiveFilter(filterId);
+    setShowMobileFilters(false);
+  };
+
   return (
     <div className={styles.collectionsPage}>
       <div className={styles.container}>
-        {/* Hero Section */}
+        {/* Hero Section - Hidden on mobile */}
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
             <div className={styles.heroBadge}>
@@ -128,7 +138,95 @@ const Collections = () => {
           </div>
         </section>
 
-        {/* Filters and Sorting */}
+        {/* Mobile Filter Header - Only visible on mobile */}
+        <section className={styles.mobileFilterHeader}>
+          <div className={styles.mobileFilterTop}>
+            <h1 className={styles.mobileTitle}>Collections</h1>
+            <button 
+              className={styles.mobileFilterToggle}
+              onClick={toggleMobileFilters}
+            >
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+              Filters
+              {activeFilter !== 'all' && (
+                <span className={styles.activeFilterDot}></span>
+              )}
+            </button>
+          </div>
+          
+          {/* Active filter display */}
+          {activeFilter !== 'all' && (
+            <div className={styles.activeFilterDisplay}>
+              <span className={styles.activeFilterText}>
+                {categories.find(c => c.id === activeFilter)?.name}
+              </span>
+              <button 
+                className={styles.clearFilter}
+                onClick={() => setActiveFilter('all')}
+              >
+                Clear
+              </button>
+            </div>
+          )}
+        </section>
+
+        {/* Mobile Filter Overlay */}
+        {showMobileFilters && (
+          <div className={styles.mobileFilterOverlay} onClick={() => setShowMobileFilters(false)}>
+            <div className={styles.mobileFilterContent} onClick={(e) => e.stopPropagation()}>
+              <div className={styles.mobileFilterHeaderInner}>
+                <h3>Filter Collections</h3>
+                <button 
+                  className={styles.closeFilters}
+                  onClick={() => setShowMobileFilters(false)}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <div className={styles.mobileCategoryFilters}>
+                {categories.map(category => (
+                  <button
+                    key={category.id}
+                    className={`${styles.mobileFilterButton} ${
+                      activeFilter === category.id ? styles.mobileFilterButtonActive : ''
+                    }`}
+                    onClick={() => handleFilterSelect(category.id)}
+                  >
+                    <span className={styles.mobileFilterName}>{category.name}</span>
+                    <span className={styles.mobileFilterCount}>{category.count}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className={styles.mobileSortSection}>
+                <label className={styles.mobileSortLabel}>Sort by:</label>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className={styles.mobileSortSelect}
+                >
+                  <option value="featured">Featured</option>
+                  <option value="name">Name</option>
+                  <option value="items">Number of Items</option>
+                </select>
+              </div>
+
+              <button 
+                className={styles.applyFilters}
+                onClick={() => setShowMobileFilters(false)}
+              >
+                Apply Filters
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Filters and Sorting - Desktop */}
         <section className={styles.filtersSection}>
           <div className={styles.filtersContainer}>
             {/* Category Filters */}
@@ -267,14 +365,8 @@ const Collections = () => {
               making your gifting experience exceptional.
             </p>
             <div className={styles.ctaActions}>
-              <Link to="/bespoke" className={styles.ctaPrimary}>
-                Bespoke Service
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </Link>
-              <Link to="/contact" className={styles.ctaSecondary}>
-                Contact Concierge
+              <Link to="/contact" className={styles.ctaPrimary}>
+                Contact US
               </Link>
             </div>
           </div>

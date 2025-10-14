@@ -322,7 +322,7 @@
 }
 
 .bottomNavLink.navLinkActive {
-  background: var(--pale-teal);
+  background: var(--pale-teal) !important;
 }
 
 /* Dark Mode */
