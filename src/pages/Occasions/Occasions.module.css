@@ -11,35 +11,55 @@
 
 /* Hero Section */
 .heroSection {
-  padding: 4rem 0 3rem;
+  padding: 5rem 0 4rem;
   text-align: center;
-  background: linear-gradient(135deg, var(--pale-teal) 0%, transparent 100%);
+  background: linear-gradient(135deg, var(--pale-teal) 0%, transparent 70%);
   margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--light-gold) 0%, transparent 70%);
+  opacity: 0.1;
+  border-radius: 50%;
 }
 
 .heroContent {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .heroBadge {
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 50px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
 }
 
 .heroBadge span {
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .heroTitle {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 300;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
@@ -50,10 +70,22 @@
 .titleAccent {
   color: var(--gold);
   font-weight: 400;
+  position: relative;
+}
+
+.titleAccent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.6;
 }
 
 .heroSubtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
@@ -68,81 +100,123 @@
 }
 
 .sectionTitle {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 300;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
 }
 
 .sectionSubtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
   line-height: 1.6;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 1rem auto 0;
 }
 
 .sectionCount {
   color: var(--text-secondary);
   font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--pale-teal);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
 }
 
 /* Featured Section */
 .featuredSection {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .featuredGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
 }
 
 .featuredCard {
-  border-radius: 20px;
-  padding: 3rem 2rem;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
   color: white;
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+}
+
+.featuredCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .featuredCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.featuredCard:hover::before {
+  opacity: 1;
 }
 
 .featuredCard.teal {
   background: linear-gradient(135deg, var(--deep-teal) 0%, var(--rich-teal) 100%);
+  box-shadow: 0 15px 35px rgba(10, 61, 63, 0.2);
 }
 
 .featuredCard.gold {
   background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
   color: var(--charcoal);
+  box-shadow: 0 15px 35px rgba(201, 169, 110, 0.2);
 }
 
 .featuredContent {
   position: relative;
   z-index: 2;
   text-align: center;
+  width: 100%;
 }
 
 .featuredIcon {
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+  display: block;
 }
 
 .featuredName {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .featuredDescription {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   opacity: 0.9;
 }
 
@@ -150,38 +224,66 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.featuredCard.gold .featuredMeta {
+  border-top: 1px solid rgba(26, 26, 26, 0.2);
 }
 
 .itemCount {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   opacity: 0.8;
 }
 
 .exploreLink {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   color: inherit;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.featuredCard.gold .exploreLink {
+  background: rgba(26, 26, 26, 0.1);
 }
 
 .exploreLink:hover {
-  gap: 0.75rem;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(4px);
+}
+
+.featuredCard.gold .exploreLink:hover {
+  background: rgba(26, 26, 26, 0.2);
 }
 
 .exploreLink svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.exploreLink:hover svg {
+  transform: translateX(2px);
 }
 
 /* Filters Section */
 .filtersSection {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 20px rgba(10, 61, 63, 0.05);
 }
 
 .filtersContainer {
@@ -189,88 +291,147 @@
 }
 
 .filterLabel {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.filterLabel::before,
+.filterLabel::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .filterButtons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
   justify-content: center;
 }
 
 .filterButton {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--background);
   color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.filterButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.filterButton:hover::before {
+  left: 100%;
 }
 
 .filterButton:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(201, 169, 110, 0.2);
 }
 
 .filterButtonActive {
   background: var(--primary);
   color: var(--pearl);
   border-color: var(--primary);
+  box-shadow: 0 5px 15px rgba(10, 61, 63, 0.3);
 }
 
 .filterButtonActive:hover {
   background: var(--rich-teal);
+  border-color: var(--rich-teal);
   color: var(--pearl);
+  transform: translateY(-2px);
 }
 
 .filterCount {
-  font-size: 0.8rem;
-  opacity: 0.7;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  min-width: 2rem;
+}
+
+.filterButtonActive .filterCount {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Occasions Grid */
 .occasionsSection {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .occasionsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
 }
 
 .occasionCard {
   background: var(--surface);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 2.5rem;
   border: 1px solid var(--border);
   transition: all 0.4s ease;
   position: relative;
+  overflow: hidden;
+}
+
+.occasionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--light-gold));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.occasionCard:hover::before {
+  transform: scaleX(1);
 }
 
 .occasionCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--gold);
-  box-shadow: 0 12px 30px rgba(201, 169, 110, 0.15);
+  box-shadow: 0 20px 40px rgba(201, 169, 110, 0.15);
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .occasionImage {
@@ -278,14 +439,14 @@
 }
 
 .occasionIcon {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--gold);
-  opacity: 0.9;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  display: block;
 }
 
 .featuredBadge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
@@ -293,9 +454,10 @@
   color: var(--charcoal);
   border-radius: 50px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
 }
 
 .featuredBadge svg {
@@ -304,12 +466,12 @@
 }
 
 .cardContent {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .occasionName {
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1rem;
   line-height: 1.3;
@@ -318,88 +480,116 @@
 .occasionDescription {
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
 .occasionMeta {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
+  background: var(--pale-teal);
+  padding: 1.5rem;
+  border-radius: 12px;
 }
 
 .metaItem {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  text-align: center;
 }
 
 .metaLabel {
   font-size: 0.8rem;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .metaValue {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--gold);
 }
 
 .metaCategory {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary);
-  padding: 0.25rem 0.5rem;
-  background: var(--pale-teal);
-  border-radius: 4px;
-  text-align: center;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
 }
 
 .cardActions {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .primaryButton {
   flex: 1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
   background: var(--primary);
   color: var(--pearl);
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.primaryButton:hover::before {
+  left: 100%;
 }
 
 .primaryButton:hover {
   background: var(--rich-teal);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 61, 63, 0.3);
 }
 
 .primaryButton svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.primaryButton:hover svg {
+  transform: translateX(3px);
 }
 
 .secondaryButton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.5rem;
   background: transparent;
   color: var(--text-secondary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   flex-shrink: 0;
@@ -409,30 +599,31 @@
   background: var(--pale-teal);
   color: var(--primary);
   border-color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .secondaryButton svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* No Results */
 .noResults {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   background: var(--surface);
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  border-radius: 20px;
+  border: 2px dashed var(--border);
 }
 
 .noResultsIcon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 4rem;
+  margin-bottom: 2rem;
   opacity: 0.5;
 }
 
 .noResultsTitle {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 1rem;
@@ -440,32 +631,37 @@
 
 .noResultsDescription {
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .resetFilters {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2.5rem;
   background: var(--primary);
   color: var(--pearl);
   border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .resetFilters:hover {
   background: var(--rich-teal);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(10, 61, 63, 0.3);
 }
 
 /* Gift Guide Section */
 .giftGuideSection {
   background: linear-gradient(135deg, var(--deep-teal) 0%, var(--rich-teal) 100%);
-  border-radius: 20px;
-  padding: 4rem;
-  margin-bottom: 4rem;
+  border-radius: 24px;
+  padding: 5rem 4rem;
+  margin-bottom: 5rem;
   color: white;
   position: relative;
   overflow: hidden;
@@ -478,7 +674,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="goldPattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23c9a96e" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23goldPattern)"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="goldPattern" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1.5" fill="%23c9a96e" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23goldPattern)"/></svg>');
   pointer-events: none;
 }
 
@@ -487,66 +683,72 @@
   z-index: 2;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  gap: 4rem;
   align-items: center;
 }
 
 .guideTitle {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .guideDescription {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   opacity: 0.9;
 }
 
 .guideActions {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .guidePrimary {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
+  gap: 1rem;
+  padding: 1.25rem 2.5rem;
   background: var(--gold);
   color: var(--charcoal);
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(201, 169, 110, 0.3);
 }
 
 .guidePrimary:hover {
   background: var(--light-gold);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(201, 169, 110, 0.4);
 }
 
 .guidePrimary svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.guidePrimary:hover svg {
+  transform: translateX(3px);
 }
 
 .guideSecondary {
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
   background: transparent;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
@@ -554,8 +756,8 @@
 
 .guideSecondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
 }
 
 .guideVisual {
@@ -565,13 +767,18 @@
 .guideIcons {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .guideIcon {
-  font-size: 3rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  font-size: 4rem;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
   animation: float 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.guideIcon:nth-child(1) {
+  animation-delay: 0s;
 }
 
 .guideIcon:nth-child(2) {
@@ -584,56 +791,79 @@
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
-  50% {
-    transform: translateY(-10px);
+  33% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-3deg);
   }
 }
 
 /* Tips Section */
 .tipsSection {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .tipsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
 }
 
 .tipCard {
   background: var(--surface);
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 3rem 2rem;
   text-align: center;
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tipCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--light-gold));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tipCard:hover::before {
+  transform: scaleX(1);
 }
 
 .tipCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--gold);
-  box-shadow: 0 8px 25px rgba(201, 169, 110, 0.1);
+  box-shadow: 0 15px 35px rgba(201, 169, 110, 0.15);
 }
 
 .tipIcon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
   color: var(--gold);
+  display: block;
 }
 
 .tipTitle {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
 }
 
 .tipDescription {
   color: var(--text-secondary);
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 /* Responsive Design */
@@ -645,12 +875,16 @@
   .giftGuideContent {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2rem;
+    gap: 3rem;
   }
   
   .guideIcons {
     flex-direction: row;
     justify-content: center;
+  }
+
+  .occasionsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }
 
@@ -660,24 +894,25 @@
   }
 
   .heroSection {
-    padding: 3rem 0 2rem;
-  }
-
-  .heroTitle {
-    font-size: 2.25rem;
+    display: none;
   }
 
   .sectionTitle {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .occasionsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .occasionCard {
+    padding: 2rem;
   }
 
   .occasionMeta {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .cardActions {
@@ -685,15 +920,16 @@
   }
 
   .featuredCard {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 2rem;
+    min-height: 280px;
   }
 
   .giftGuideSection {
-    padding: 3rem 2rem;
+    padding: 4rem 2.5rem;
   }
 
   .guideTitle {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .guideActions {
@@ -704,12 +940,31 @@
   .guidePrimary,
   .guideSecondary {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     justify-content: center;
   }
 
   .tipsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .filtersSection {
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .filterButtons {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .filterButton {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -718,39 +973,61 @@
     padding: 0 1rem;
   }
 
-  .heroTitle {
-    font-size: 2rem;
+  .occasionsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .heroSubtitle {
-    font-size: 1rem;
-  }
-
-  .filterButtons {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-
-  .filterButton {
-    white-space: nowrap;
+  .tipsGrid {
+    grid-template-columns: 1fr;
   }
 
   .featuredMeta {
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
   }
 
   .giftGuideSection {
+    padding: 3rem 2rem;
+  }
+
+  .featuredCard {
     padding: 2rem 1.5rem;
+  }
+
+  .occasionCard {
+    padding: 1.5rem;
+  }
+
+  .tipCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .occasionName {
+    font-size: 1.3rem;
+  }
+
+  .occasionDescription {
+    font-size: 0.95rem;
+  }
+
+  .cardActions {
+    gap: 0.75rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
   }
 }
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
   .heroSection {
-    background: linear-gradient(135deg, var(--stone) 0%, transparent 100%);
+    background: linear-gradient(135deg, var(--stone) 0%, transparent 70%);
   }
 
   .occasionCard,
@@ -759,6 +1036,10 @@
   }
 
   .noResults {
+    background: var(--surface);
+  }
+
+  .filtersSection {
     background: var(--surface);
   }
 }

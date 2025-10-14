@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import UserAccount from './pages/UserAccount/UserAccount.jsx';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Header from './components/header/header';
 import Home from './pages/Home/Home.jsx';
@@ -25,6 +26,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/user-account" element={<UserAccount />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path='/categories' element={<Categories />} />
             <Route path="/favorite" element={<Favorites/>} />
