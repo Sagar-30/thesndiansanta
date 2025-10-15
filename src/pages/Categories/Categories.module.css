@@ -207,12 +207,12 @@
   background: var(--surface);
 }
 
-.checkbox:checked + .checkmark {
+.checkbox:checked+.checkmark {
   background: var(--deep-teal);
   border-color: var(--deep-teal);
 }
 
-.checkbox:checked + .checkmark::after {
+.checkbox:checked+.checkmark::after {
   content: '✓';
   color: var(--pearl);
   font-size: 0.7rem;
@@ -548,7 +548,7 @@
 .mobileFilterSection {
   display: none;
   margin-bottom: 1.5rem;
-  padding:0 1rem;
+  padding: 0 1rem;
   background: var(--surface);
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -792,7 +792,10 @@
 
   .sortSelect {
     background: var(--surface);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23c9a96e'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230a3d3f'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
   }
 
   .checkmark {

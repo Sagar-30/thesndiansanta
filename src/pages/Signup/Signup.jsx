@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Signup.module.css';
+// import firebaseConfigapp from '../../firebase/firebaseconfig';
+// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Signup = () => {
   const [formData, setFormData] = useState({

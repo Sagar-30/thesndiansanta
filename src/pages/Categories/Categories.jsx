@@ -30,7 +30,7 @@ const Categories = () => {
       rating: 4.3,
       reviewCount: 892,
       image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
-      tags: ["Amazon's Choice", "Climate Pledge Friendly"],
+      tags: ["Climate Pledge Friendly"],
       delivery: "FREE Delivery",
       isPrime: true,
       discount: 38,
@@ -86,7 +86,7 @@ const Categories = () => {
       rating: 4.8,
       reviewCount: 3124,
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop",
-      tags: ["Amazon's Choice"],
+      tags: ["Indian Santa's Choice"],
       delivery: "FREE Delivery",
       isPrime: true,
       discount: 25,
@@ -142,7 +142,7 @@ const Categories = () => {
       rating: 4.4,
       reviewCount: 765,
       image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
-      tags: ["Amazon's Choice"],
+      tags: ["Indian Santa's Choice"],
       delivery: "FREE Delivery",
       isPrime: true,
       discount: 28,
@@ -243,7 +243,7 @@ const Categories = () => {
     <div className={styles.categories}>
       <div className={styles.container}>
         {/* Header Section */}
-        <div className={styles.header}>
+        {/* <div className={styles.header}>
           <div className={styles.breadcrumb}>
             <span>Home</span>
             <span className={styles.breadcrumbSeparator}>›</span>
@@ -253,8 +253,8 @@ const Categories = () => {
           </div>
 
           <h1 className={styles.title}>Headphones & Audio</h1>
-          <p className={styles.subtitle}>1-12 of over 50,000 results</p>
-        </div>
+          <p className={styles.subtitle}>5000 Products Found</p>
+        </div> */}
 
         {/* Mobile Filter Section */}
         <div className={styles.mobileFilterSection}>
@@ -394,9 +394,9 @@ const Categories = () => {
                     </div>
 
                     <div className={styles.priceContainer}>
-                      <span className={styles.currentPrice}>${product.price}</span>
+                      <span className={styles.currentPrice}>₹{product.price}</span>
                       {product.originalPrice && (
-                        <span className={styles.originalPrice}>${product.originalPrice}</span>
+                        <span className={styles.originalPrice}>₹{product.originalPrice}</span>
                       )}
                     </div>
 
@@ -408,12 +408,12 @@ const Categories = () => {
                       ))}
                     </div>
 
-                    <div className={styles.deliveryInfo}>
+                    {/* <div className={styles.deliveryInfo}>
                       {product.isPrime && (
                         <span className={styles.primeBadge}>Prime</span>
                       )}
                       <span className={styles.deliveryText}>{product.delivery}</span>
-                    </div>
+                    </div> */}
 
                     <button className={styles.addToCartButton}>
                       Add to Cart
@@ -428,7 +428,7 @@ const Categories = () => {
             </div>
 
             {/* Pagination */}
-            <div className={styles.pagination}>
+            {/* <div className={styles.pagination}>
               <button className={styles.paginationButton}>Previous</button>
               <div className={styles.paginationPages}>
                 <button className={`${styles.pageButton} ${styles.pageButtonActive}`}>1</button>
@@ -440,7 +440,7 @@ const Categories = () => {
                 <button className={styles.pageButton}>20</button>
               </div>
               <button className={styles.paginationButton}>Next</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
