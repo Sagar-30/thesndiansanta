@@ -13,6 +13,9 @@ import Collections from './pages/Collections/Collections';
 import Occasions from './pages/Occasions/Occasions';
 import Customize from './pages/Customize/Customize';
 
+// Testing
+import HomePage from './pages/Test/testhome.jsx';
+
 
 import styles from './App.module.css';
 
@@ -23,7 +26,7 @@ function App() {
         <Header />
         <main className={styles.main}>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<HomePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/user-account" element={<UserAccount />} />
