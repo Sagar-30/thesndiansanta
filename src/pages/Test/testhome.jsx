@@ -1,78 +1,24 @@
 import React from 'react';
+import { Helmet } from "react-helmet"
 import styles from './Home.module.css';
 
-// Import images (you'll need to add these to your project)
-// For now using placeholder image URLs - replace with your actual images
-// const images = {
-//   // Icons
-//   iwai: 'https://images.oyehappy.com/icons/iwai.jpg',
-//   anniversary: 'https://images.oyehappy.com/icons/anniversary.jpg',
-//   birthday: 'https://images.oyehappy.com/icons/birthday.jpg',
-//   boyfriend: 'https://images.oyehappy.com/icons/boyfriend.jpg',
-//   customHampers: 'https://images.oyehappy.com/icons/custom-hampers.jpg',
-//   girlfriend: 'https://images.oyehappy.com/icons/girlfriend.jpg',
-//   homeDecor: 'https://images.oyehappy.com/icons/home-decor.jpg',
-  
-//   // Occasions
-//   anniversaryCelebration: 'https://images.oyehappy.com/occasions/anniversary.jpg',
-//   birthdayParty: 'https://images.oyehappy.com/occasions/birthday.jpg',
-//   honeymoon: 'https://images.oyehappy.com/occasions/honeymoon.jpg',
-//   houseWarming: 'https://images.oyehappy.com/occasions/house-warming.jpg',
-//   babyShower: 'https://images.oyehappy.com/occasions/baby-shower.jpg',
-  
-//   // Products
-//   ayodhyaDiwali: 'https://images.oyehappy.com/products/ayodhya-diwali.jpg',
-//   shubhDeepawali: 'https://images.oyehappy.com/products/shubh-deepawali.jpg',
-//   diyPatakha: 'https://images.oyehappy.com/products/diy-patakha.jpg',
-//   flavoursDiwali: 'https://images.oyehappy.com/products/flavours-diwali.jpg',
-  
-//   // Events
-//   bossDay: 'https://images.oyehappy.com/events/boss-day.jpg',
-//   dhanteras: 'https://images.oyehappy.com/events/dhanteras.jpg',
-//   diwali: 'https://images.oyehappy.com/events/diwali.jpg',
-//   bhaiDooj: 'https://images.oyehappy.com/events/bhai-dooj.jpg',
-//   halloween: 'https://images.oyehappy.com/events/halloween.jpg',
-  
-//   // Hampers
-//   dinoCake: 'https://images.oyehappy.com/hampers/dino-cake.jpg',
-//   diwaliCookies: 'https://images.oyehappy.com/hampers/diwali-cookies.jpg',
-//   floralBouquet: 'https://images.oyehappy.com/hampers/floral-bouquet.jpg',
-//   sparklingTraditions: 'https://images.oyehappy.com/hampers/sparkling-traditions.jpg',
-  
-//   // Relationships
-//   men: 'https://images.oyehappy.com/relationships/men.jpg',
-//   women: 'https://images.oyehappy.com/relationships/women.jpg',
-//   kids: 'https://images.oyehappy.com/relationships/kids.jpg',
-//   friend: 'https://images.oyehappy.com/relationships/friend.jpg',
-//   girlfriend: 'https://images.oyehappy.com/relationships/girlfriend.jpg',
-//   boyfriend: 'https://images.oyehappy.com/relationships/boyfriend.jpg',
-//   wife: 'https://images.oyehappy.com/relationships/wife.jpg',
-//   husband: 'https://images.oyehappy.com/relationships/husband.jpg',
-  
-//   // Promos
-//   cakeCreations: 'https://images.oyehappy.com/promos/cake-creations.jpg',
-//   lovelyGifts: 'https://images.oyehappy.com/promos/lovely-gifts.jpg',
-  
-//   // Home & Living
-//   homeDecor: 'https://images.oyehappy.com/home/home-decor.jpg',
-//   photoFrames: 'https://images.oyehappy.com/home/photo-frames.jpg',
-//   kitchenDining: 'https://images.oyehappy.com/home/kitchen-dining.jpg',
-  
-//   // Gift Finder
-//   occasion: 'https://images.oyehappy.com/gift-finder/occasion.jpg',
-//   giftType: 'https://images.oyehappy.com/gift-finder/gift-type.jpg',
-//   inspiration: 'https://images.oyehappy.com/gift-finder/inspiration.jpg',
-  
-//   // Features
-//   dataPrivacy: 'https://images.oyehappy.com/features/data-privacy.jpg',
-//   happiness: 'https://images.oyehappy.com/features/happiness.jpg',
-//   securePayments: 'https://images.oyehappy.com/features/secure-payments.jpg',
-//   madeInIndia: 'https://images.oyehappy.com/features/made-in-india.jpg'
-// };
+// SEO Component for better search engine visibility
+const SEO = () => (
+  <Helmet>
+    <title>The Indian Santa - India's First Patakha Hamper | Unique Gift Experiences</title>
+    <meta name="description" content="Make their day explode with joy. Thoughtfully curated surprises, personalized gifts for birthdays, anniversaries, Diwali & all special occasions. Rated 4.8/5 by 4,62,543 customers." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="patakha hamper, Diwali gifts, birthday gifts, anniversary surprises, custom hampers India" />
+    <meta property="og:title" content="The Indian Santa - India's First Patakha Hamper" />
+    <meta property="og:description" content="Thoughtfully curated surprises, personalized just for them" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://www.oyehappy.com/" />
+  </Helmet>
+);
 
 const images = {
   // Icons
-  iwai: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=200&h=200&fit=crop',
+  Diwali: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=200&h=200&fit=crop',
   anniversary: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=200&h=200&fit=crop',
   birthday: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&h=200&fit=crop',
   boyfriend: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop',
@@ -137,122 +83,44 @@ const images = {
   madeInIndia: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=100&h=100&fit=crop'
 };
 
-const HomePage = () => {
-  return (
-    <div className={styles.container}>
-      {/* Top navigation */}
-      <header className={styles.topbar}>
-        <div className={styles.nav}>
-          <div className={styles.brand}>
-            <div className={styles.logo}>OH</div>
-            Oye Happy
+// Trust Indicator Component
+const TrustIndicator = () => (
+  <div className={styles.trustIndicatorMain}> 
+  <div className={styles.trustIndicator}>
+    <span className={styles.trustIndicatorSpan}>
+      ⭐ Rated 4.8 / 5 | Trusted by 4,62,543 Happy Customers
+    </span>
+  </div>
+  </div>
+);
+
+// Reusable Section Component with Mobile Carousel
+const Section = ({ title, items, type = 'grid', ariaLabelledBy }) => (
+  <section className={styles.section} aria-labelledby={ariaLabelledBy}>
+    <header className={styles.sectionHeader}>
+      <h2 id={ariaLabelledBy}>{title}</h2>
+    </header>
+    
+    {/* Mobile Carousel */}
+    <div className={styles.scrollCarousel}>
+      {items.map((item, index) => (
+        <article key={index} className={styles.mobileCard}>
+          <img src={item.image} alt={item.alt} loading="lazy" />
+          <div className={styles.mobileCardInfo}>
+            <h3 className={styles.mobileCardTitle}>{item.title}</h3>
+            {item.meta && <p className={styles.mobileCardMeta}>{item.meta}</p>}
           </div>
-          <nav className={styles.navLinks}>
-            <a href="#">Anniversary gifts</a>
-            <a href="#">Birthday gifts</a>
-            <a href="#">Gifts by occasion</a>
-            <a href="#">Gifts by relationship</a>
-            <a href="#">Gifts by type</a>
-          </nav>
-          <div className={styles.navActions}>
-            <a className={styles.chip} href="#">Track order</a>
-            <a className={styles.cart} href="#">Cart</a>
-          </div>
-        </div>
-      </header>
-
-      <main className={styles.main}>
-        {/* Circular icons rail */}
-        <section className={styles.iconsRail} aria-label="Quick categories">
-          {[
-            { name: 'Iwai', image: images.iwai, alt: 'Iwai' },
-            { name: 'Anniversary', image: images.anniversary, alt: 'Anniversary' },
-            { name: 'Birthday', image: images.birthday, alt: 'Birthday' },
-            { name: 'Boyfriend', image: images.boyfriend, alt: 'Boyfriend' },
-            { name: 'Custom hampers', image: images.customHampers, alt: 'Custom hampers' },
-            { name: 'Girlfriend', image: images.girlfriend, alt: 'Girlfriend' },
-            { name: 'Home decor', image: images.homeDecor, alt: 'Home decor' }
-          ].map((item, index) => (
-            <div key={index} className={styles.iconCard}>
-              <div className={styles.iconCircle}>
-                <img src={item.image} alt={item.alt} />
-              </div>
-              <span>{item.name}</span>
-            </div>
-          ))}
-        </section>
-
-        {/* Hero banner */}
-        <section className={styles.hero} aria-label="Featured hamper">
-          <div className={styles.heroText}>
-            <h1>India's First Patakha Hamper</h1>
-            <p>Make their day explode with joy. Thoughtfully curated surprises, personalized just for them.</p>
-            <button className={styles.cta}>Shop now</button>
-          </div>
-          <div className={styles.heroVisual} aria-hidden="true">
-            <div className={styles.giftBox}>
-              <img src={images.ayodhyaDiwali} alt="Patakha Hamper" className={styles.giftImage} />
-              <div className={styles.giftOverlay}>Oye Happy</div>
-            </div>
-            <div className={styles.sparkler}></div>
-          </div>
-        </section>
-
-        {/* Gifts by occasion */}
-        <Section 
-          title="Gifts by occasion"
-          items={[
-            { title: 'Anniversary', meta: 'Celebrate lasting love', image: images.anniversaryCelebration, alt: 'Anniversary celebration' },
-            { title: 'Birthday', meta: 'Surprises for every age', image: images.birthdayParty, alt: 'Birthday party' },
-            { title: 'Honeymoon', meta: 'Romance-packed picks', image: images.honeymoon, alt: 'Honeymoon getaway' },
-            { title: 'House warming', meta: 'Make new homes glow', image: images.houseWarming, alt: 'House warming' },
-            { title: 'Baby shower for dads', meta: 'Cheer the new dad', image: images.babyShower, alt: 'Baby shower for dads' }
-          ]}
-          type="grid"
-        />
-
-        {/* Products Section */}
-        <ProductsSection />
-
-        {/* Celebrations Calendar */}
-        <CelebrationsCalendar />
-
-        {/* Hampers for every occasion */}
-        <HampersSection />
-
-        {/* Gifts by Relationship */}
-        <GiftsByRelationship />
-
-        {/* Surprises For Little Ones */}
-        <SurprisesSection />
-
-        {/* Home & Living Gifts */}
-        <HomeLivingSection />
-
-        {/* Gift Finder */}
-        <GiftFinderSection />
-
-        {/* Customer Stories */}
-        <CustomerStories />
-
-        <p className={styles.footnote}>Make every occasion special with Oye Happy</p>
-      </main>
+        </article>
+      ))}
     </div>
-  );
-};
-
-// Reusable Section Component
-const Section = ({ title, items, type = 'grid' }) => (
-  <section className={styles.section}>
-    <div className={styles.sectionHead}>
-      <h2>{title}</h2>
-    </div>
-    <div className={type === 'grid' ? styles.grid : styles.flexRow}>
+    
+    {/* Desktop Grid */}
+    <div className={styles.grid}>
       {items.map((item, index) => (
         <article key={index} className={styles.card}>
-          <img src={item.image} alt={item.alt} />
+          <img src={item.image} alt={item.alt} loading="lazy" />
           <div className={styles.info}>
-            <p className={styles.title}>{item.title}</p>
+            <h3 className={styles.title}>{item.title}</h3>
             {item.meta && <p className={styles.meta}>{item.meta}</p>}
           </div>
         </article>
@@ -261,28 +129,49 @@ const Section = ({ title, items, type = 'grid' }) => (
   </section>
 );
 
-// Products Section Component
+// Products Section Component with Mobile Carousel
 const ProductsSection = () => (
-  <section className={styles.productsSection}>
-    <div className={styles.trustIndicator}>
-      ⭐ Rated 4.8 / 5 | Trusted by 4,62,543 Happy Customers
+  <section className={styles.productsSection} aria-labelledby="featured-collections">
+    <header className={styles.sectionHeader}>
+      <h2 id="featured-collections">Featured Collections</h2>
+    </header>
+    <div className={styles.tabs} role="tablist">
+      <button className={styles.activeTab} role="tab" aria-selected="true">NEW</button>
+      <button className={styles.tab} role="tab" aria-selected="false">TRENDING</button>
+      <button className={styles.tab} role="tab" aria-selected="false">BESTSELLER</button>
     </div>
 
-    <div className={styles.tabs}>
-      <button className={styles.activeTab}>NEW</button>
-      <button className={styles.tab}>TRENDING</button>
-      <button className={styles.tab}>BESTSELLER</button>
+    {/* Mobile Carousel */}
+    <div className={styles.scrollCarousel}>
+      {[
+        { name: 'Ayodhya ki Diwali Hamper', price: '₹1,290', original: '₹1,790', image: images.ayodhyaDiwali, alt: 'Ayodhya ki Diwali Hamper with traditional elements' },
+        { name: 'Shubh Deepawali Hamper', price: '₹1,490', original: '₹1,790', image: images.shubhDeepawali, alt: 'Shubh Deepawali gift hamper' },
+        { name: 'DIY Patakha Box', price: '₹399', original: '₹499', image: images.diyPatakha, alt: 'DIY Patakha Box for festive celebrations' },
+        { name: 'Flavours of Diwali Hamper', price: '₹1,690', original: '₹1,790', image: images.flavoursDiwali, alt: 'Flavours of Diwali food hamper' }
+      ].map((product, index) => (
+        <article key={index} className={styles.mobileProductCard}>
+          <img src={product.image} alt={product.alt} loading="lazy" />
+          <div className={styles.mobileProductInfo}>
+            <h3>{product.name}</h3>
+            <p className={styles.mobileProductPrice}>
+              {product.price}
+              <span className={styles.mobileOriginalPrice}>{product.original}</span>
+            </p>
+          </div>
+        </article>
+      ))}
     </div>
 
+    {/* Desktop Grid */}
     <div className={styles.productsGrid}>
       {[
-        { name: 'Ayodhya ki Diwali Hamper', price: '₹1,290', original: '₹1,790', image: images.ayodhyaDiwali },
-        { name: 'Shubh Deepawali Hamper', price: '₹1,490', original: '₹1,790', image: images.shubhDeepawali },
-        { name: 'DIY Patakha Box', price: '₹399', original: '₹499', image: images.diyPatakha },
-        { name: 'Flavours of Diwali Hamper', price: '₹1,690', original: '₹1,790', image: images.flavoursDiwali }
+        { name: 'Ayodhya ki Diwali Hamper', price: '₹1,290', original: '₹1,790', image: images.ayodhyaDiwali, alt: 'Ayodhya ki Diwali Hamper with traditional elements' },
+        { name: 'Shubh Deepawali Hamper', price: '₹1,490', original: '₹1,790', image: images.shubhDeepawali, alt: 'Shubh Deepawali gift hamper' },
+        { name: 'DIY Patakha Box', price: '₹399', original: '₹499', image: images.diyPatakha, alt: 'DIY Patakha Box for festive celebrations' },
+        { name: 'Flavours of Diwali Hamper', price: '₹1,690', original: '₹1,790', image: images.flavoursDiwali, alt: 'Flavours of Diwali food hamper' }
       ].map((product, index) => (
-        <div key={index} className={styles.productCard}>
-          <img src={product.image} alt={product.name} />
+        <article key={index} className={styles.productCard}>
+          <img src={product.image} alt={product.alt} loading="lazy" />
           <div className={styles.productInfo}>
             <h3>{product.name}</h3>
             <p className={styles.productPrice}>
@@ -290,7 +179,7 @@ const ProductsSection = () => (
               <span className={styles.originalPrice}>{product.original}</span>
             </p>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </section>
@@ -298,46 +187,69 @@ const ProductsSection = () => (
 
 // Celebrations Calendar Component
 const CelebrationsCalendar = () => (
-  <section className={styles.calendarSection}>
-    <div className={styles.sectionHeader}>
-      <h2>Celebrations Calendar</h2>
-    </div>
+  <section className={styles.calendarSection} aria-labelledby="celebrations-calendar">
+    <header className={styles.sectionHeader}>
+      <h2 id="celebrations-calendar">Celebrations Calendar</h2>
+    </header>
     <div className={styles.calendarGrid}>
       {[
-        { name: 'Boss Day', date: '16th October', image: images.bossDay },
-        { name: 'Dhanteras', date: '18th October', image: images.dhanteras },
-        { name: 'Diwali', date: '20th October', image: images.diwali },
-        { name: 'Bhai Dooj', date: '23rd October', image: images.bhaiDooj },
-        { name: 'Halloween', date: '31st October', image: images.halloween }
+        { name: 'Boss Day', date: '16th October', image: images.bossDay, alt: 'Boss Day celebration' },
+        { name: 'Dhanteras', date: '18th October', image: images.dhanteras, alt: 'Dhanteras festival' },
+        { name: 'Diwali', date: '20th October', image: images.diwali, alt: 'Diwali festival of lights' },
+        { name: 'Bhai Dooj', date: '23rd October', image: images.bhaiDooj, alt: 'Bhai Dooj celebration' },
+        { name: 'Halloween', date: '31st October', image: images.halloween, alt: 'Halloween celebration' }
       ].map((event, index) => (
-        <div key={index} className={styles.eventCard}>
-          <img src={event.image} alt={event.name} />
+        <article key={index} className={styles.eventCard}>
+          <img src={event.image} alt={event.alt} loading="lazy" />
           <div className={styles.eventInfo}>
             <h3>{event.name}</h3>
             <p>{event.date}</p>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </section>
 );
 
-// Hampers Section Component
+// Hampers Section Component with Mobile Carousel
 const HampersSection = () => (
-  <section className={styles.hampersSection}>
-    <div className={styles.sectionHeader}>
-      <h2>Hampers for every occasion</h2>
+  <section className={styles.hampersSection} aria-labelledby="hampers-occasion">
+    <header className={styles.sectionHeader}>
+      <h2 id="hampers-occasion">Hampers for every occasion</h2>
       <p>Packed with love</p>
+    </header>
+
+    {/* Mobile Carousel */}
+    <div className={styles.scrollCarousel}>
+      {[
+        { name: 'Dino-Themed Birthday Cake 1kg', price: '₹1295', delivery: true, image: images.dinoCake, alt: 'Dino themed birthday cake' },
+        { name: 'Diwali Gift Hamper With Butter Cookies', price: '₹1195', delivery: true, image: images.diwaliCookies, alt: 'Diwali gift hamper with cookies' },
+        { name: 'Floral Gratitude Bouquet', price: '₹595', delivery: true, image: images.floralBouquet, alt: 'Floral gratitude bouquet' },
+        { name: 'Sparkling Traditions Diwali Hamper', price: '₹1495', delivery: false, image: images.sparklingTraditions, alt: 'Sparkling traditions Diwali hamper' }
+      ].map((hamper, index) => (
+        <article key={index} className={styles.mobileHamperCard}>
+          <img src={hamper.image} alt={hamper.alt} loading="lazy" />
+          <div className={styles.mobileHamperInfo}>
+            <h3>{hamper.name}</h3>
+            <p className={styles.mobileHamperPrice}>{hamper.price}</p>
+            {hamper.delivery && (
+              <span className={styles.mobileDeliveryBadge}>Same Day Delivery</span>
+            )}
+          </div>
+        </article>
+      ))}
     </div>
+
+    {/* Desktop Grid */}
     <div className={styles.hampersGrid}>
       {[
-        { name: 'Dino-Themed Birthday Cake 1kg', price: '₹1295', delivery: true, image: images.dinoCake },
-        { name: 'Diwali Gift Hamper With Butter Cookies', price: '₹1195', delivery: true, image: images.diwaliCookies },
-        { name: 'Floral Gratitude Bouquet', price: '₹595', delivery: true, image: images.floralBouquet },
-        { name: 'Sparkling Traditions Diwali Hamper', price: '₹1495', delivery: false, image: images.sparklingTraditions }
+        { name: 'Dino-Themed Birthday Cake 1kg', price: '₹1295', delivery: true, image: images.dinoCake, alt: 'Dino themed birthday cake' },
+        { name: 'Diwali Gift Hamper With Butter Cookies', price: '₹1195', delivery: true, image: images.diwaliCookies, alt: 'Diwali gift hamper with cookies' },
+        { name: 'Floral Gratitude Bouquet', price: '₹595', delivery: true, image: images.floralBouquet, alt: 'Floral gratitude bouquet' },
+        { name: 'Sparkling Traditions Diwali Hamper', price: '₹1495', delivery: false, image: images.sparklingTraditions, alt: 'Sparkling traditions Diwali hamper' }
       ].map((hamper, index) => (
-        <div key={index} className={styles.hamperCard}>
-          <img src={hamper.image} alt={hamper.name} />
+        <article key={index} className={styles.hamperCard}>
+          <img src={hamper.image} alt={hamper.alt} loading="lazy" />
           <div className={styles.hamperInfo}>
             <h3>{hamper.name}</h3>
             <p className={styles.hamperPrice}>{hamper.price}</p>
@@ -345,35 +257,35 @@ const HampersSection = () => (
               <span className={styles.deliveryBadge}>Same Day Delivery</span>
             )}
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </section>
 );
 
-// Gifts by Relationship Component (Updated with smaller cards)
+// Gifts by Relationship Component
 const GiftsByRelationship = () => (
-  <section className={styles.relationshipSection}>
-    <div className={styles.sectionHeader}>
-      <h2>Gifts by Relationship</h2>
-    </div>
+  <section className={styles.relationshipSection} aria-labelledby="gifts-relationship">
+    <header className={styles.sectionHeader}>
+      <h2 id="gifts-relationship">Gifts by Relationship</h2>
+    </header>
     <div className={styles.relationshipGrid}>
       {[
-        { name: 'Men', image: images.men },
-        { name: 'Women', image: images.women },
-        { name: 'Kids', image: images.kids },
-        { name: 'Friend', image: images.friend },
-        { name: 'Girlfriend', image: images.girlfriend },
-        { name: 'Boyfriend', image: images.boyfriend },
-        { name: 'Wife', image: images.wife },
-        { name: 'Husband', image: images.husband }
+        { name: 'Men', image: images.men, alt: 'Gifts for men' },
+        { name: 'Women', image: images.women, alt: 'Gifts for women' },
+        { name: 'Kids', image: images.kids, alt: 'Gifts for kids' },
+        { name: 'Friend', image: images.friend, alt: 'Gifts for friends' },
+        { name: 'Girlfriend', image: images.girlfriend, alt: 'Gifts for girlfriend' },
+        { name: 'Boyfriend', image: images.boyfriend, alt: 'Gifts for boyfriend' },
+        { name: 'Wife', image: images.wife, alt: 'Gifts for wife' },
+        { name: 'Husband', image: images.husband, alt: 'Gifts for husband' }
       ].map((relation, index) => (
-        <div key={index} className={styles.relationCard}>
+        <article key={index} className={styles.relationCard}>
           <div className={styles.relationImage}>
-            <img src={relation.image} alt={relation.name} />
+            <img src={relation.image} alt={relation.alt} loading="lazy" />
           </div>
           <p>{relation.name}</p>
-        </div>
+        </article>
       ))}
     </div>
   </section>
@@ -381,17 +293,17 @@ const GiftsByRelationship = () => (
 
 // Surprises Section Component
 const SurprisesSection = () => (
-  <section className={styles.surprisesSection}>
-    <div className={styles.sectionHeader}>
-      <h2>Surprises For Little Ones</h2>
-    </div>
+  <section className={styles.surprisesSection} aria-labelledby="surprises-little-ones">
+    <header className={styles.sectionHeader}>
+      <h2 id="surprises-little-ones">Surprises For Little Ones</h2>
+    </header>
     <div className={styles.surprisesGrid}>
       <div className={styles.promoCard}>
-        <img src={images.cakeCreations} alt="Cake Creations" />
+        <img src={images.cakeCreations} alt="Cake creations for kids" loading="lazy" />
         <div className={styles.promoOverlay}>EXPLORE CAKE CREATIONS</div>
       </div>
       <div className={styles.promoCard}>
-        <img src={images.lovelyGifts} alt="Lovely Gifts" />
+        <img src={images.lovelyGifts} alt="Lovely gifts for children" loading="lazy" />
         <div className={styles.promoOverlay}>FIND LOVELY GIFTS</div>
       </div>
     </div>
@@ -400,22 +312,22 @@ const SurprisesSection = () => (
 
 // Home & Living Section Component
 const HomeLivingSection = () => (
-  <section className={styles.homeLivingSection}>
-    <div className={styles.sectionHeader}>
-      <h2>Home & Living Gifts</h2>
-    </div>
+  <section className={styles.homeLivingSection} aria-labelledby="home-living-gifts">
+    <header className={styles.sectionHeader}>
+      <h2 id="home-living-gifts">Home & Living Gifts</h2>
+    </header>
     <div className={styles.homeLivingGrid}>
       {[
-        { name: 'Home Decor', image: images.homeDecor },
-        { name: 'Photo Frames', image: images.photoFrames },
-        { name: 'Kitchen & Dining', image: images.kitchenDining }
+        { name: 'Home Decor', image: images.homeDecor, alt: 'Home decor gifts' },
+        { name: 'Photo Frames', image: images.photoFrames, alt: 'Photo frame gifts' },
+        { name: 'Kitchen & Dining', image: images.kitchenDining, alt: 'Kitchen and dining gifts' }
       ].map((category, index) => (
-        <div key={index} className={styles.homeCard}>
-          <img src={category.image} alt={category.name} />
+        <article key={index} className={styles.homeCard}>
+          <img src={category.image} alt={category.alt} loading="lazy" />
           <div className={styles.homeInfo}>
             <h3>{category.name}</h3>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </section>
@@ -423,21 +335,21 @@ const HomeLivingSection = () => (
 
 // Gift Finder Section Component
 const GiftFinderSection = () => (
-  <section className={styles.giftFinderSection}>
-    <div className={styles.sectionHeader}>
-      <h2>Gift Finder</h2>
+  <section className={styles.giftFinderSection} aria-labelledby="gift-finder">
+    <header className={styles.sectionHeader}>
+      <h2 id="gift-finder">Gift Finder</h2>
       <p>Search Gifts Quicker</p>
-    </div>
+    </header>
     <div className={styles.giftFinderGrid}>
       {[
-        { name: 'Occasion', image: images.occasion },
-        { name: 'Gift Type', image: images.giftType },
-        { name: 'Need Inspiration?', image: images.inspiration }
+        { name: 'Occasion', image: images.occasion, alt: 'Find gifts by occasion' },
+        { name: 'Gift Type', image: images.giftType, alt: 'Find gifts by type' },
+        { name: 'Need Inspiration?', image: images.inspiration, alt: 'Get gift inspiration' }
       ].map((item, index) => (
-        <div key={index} className={styles.finderCard}>
-          <img src={item.image} alt={item.name} />
+        <article key={index} className={styles.finderCard}>
+          <img src={item.image} alt={item.alt} loading="lazy" />
           <h3>{item.name}</h3>
-        </div>
+        </article>
       ))}
     </div>
   </section>
@@ -445,11 +357,11 @@ const GiftFinderSection = () => (
 
 // Customer Stories Component
 const CustomerStories = () => (
-  <section className={styles.customerStories}>
-    <div className={styles.sectionHeader}>
-      <h2>Customer Stories</h2>
+  <section className={styles.customerStories} aria-labelledby="customer-stories">
+    <header className={styles.sectionHeader}>
+      <h2 id="customer-stories">Customer Stories</h2>
       <p>Rated 4.85 ★ | Based on 1155 ratings</p>
-    </div>
+    </header>
 
     <div className={styles.reviewsGrid}>
       {[
@@ -457,29 +369,122 @@ const CustomerStories = () => (
         { rating: '★★★★★', text: 'Excellent service.', author: 'Rajashaka, 17 Oct 2023' },
         { rating: '★★★★★', text: 'It was nice experience', author: 'Jyoti Yogi, 17 Oct 2023' }
       ].map((review, index) => (
-        <div key={index} className={styles.reviewCard}>
+        <article key={index} className={styles.reviewCard}>
           <div className={styles.stars}>{review.rating}</div>
           <p className={styles.reviewText}>{review.text}</p>
           <p className={styles.reviewAuthor}>{review.author}</p>
-        </div>
+        </article>
       ))}
     </div>
 
     <div className={styles.trustFeatures}>
       {[
-        { title: 'Data Privacy', desc: 'All personal information kept strictly confidential.', image: images.dataPrivacy },
-        { title: 'Happiness Guaranteed', desc: 'Over 750,000 happy customers across India.', image: images.happiness },
-        { title: 'Secure Payments', desc: 'Protected with trusted payment gateways.', image: images.securePayments },
-        { title: 'Made in India', desc: 'All gifts are made in India by our happiness scientists.', image: images.madeInIndia }
+        { title: 'Data Privacy', desc: 'All personal information kept strictly confidential.', image: images.dataPrivacy, alt: 'Data privacy protection' },
+        { title: 'Happiness Guaranteed', desc: 'Over 750,000 happy customers across India.', image: images.happiness, alt: 'Happiness guarantee' },
+        { title: 'Secure Payments', desc: 'Protected with trusted payment gateways.', image: images.securePayments, alt: 'Secure payment methods' },
+        { title: 'Made in India', desc: 'All gifts are made in India by our happiness scientists.', image: images.madeInIndia, alt: 'Made in India products' }
       ].map((feature, index) => (
-        <div key={index} className={styles.featureCard}>
-          <img src={feature.image} alt={feature.title} className={styles.featureIcon} />
+        <article key={index} className={styles.featureCard}>
+          <img src={feature.image} alt={feature.alt} className={styles.featureIcon} loading="lazy" />
           <h4>{feature.title}</h4>
           <p>{feature.desc}</p>
-        </div>
+        </article>
       ))}
     </div>
   </section>
 );
 
-export default HomePage;
+const HomePage = () => {
+  return (
+    <>
+      <SEO />
+      <div className={styles.container}>
+        {/* <TrustIndicator /> */}
+        
+        <main className={styles.main}>
+          {/* Circular icons rail */}
+          <section className={styles.iconsRail} aria-label="Quick categories">
+            {[
+              { name: 'Diwali', image: images.Diwali, alt: 'Diwali gifts and hampers' },
+              { name: 'Anniversary', image: images.anniversary, alt: 'Anniversary gifts and surprises' },
+              { name: 'Birthday', image: images.birthday, alt: 'Birthday gifts and cakes' },
+              { name: 'Boyfriend', image: images.boyfriend, alt: 'Gifts for boyfriend' },
+              { name: 'Custom hampers', image: images.customHampers, alt: 'Custom gift hampers' },
+              { name: 'Girlfriend', image: images.girlfriend, alt: 'Gifts for girlfriend' },
+              { name: 'Home decor', image: images.homeDecor, alt: 'Home decor gifts' }
+            ].map((item, index) => (
+              <div key={index} className={styles.iconCard}>
+                <div className={styles.iconCircle}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                </div>
+                <span>{item.name}</span>
+              </div>
+            ))}
+          </section>
+
+          {/* Hero banner */}
+          <section className={styles.hero} aria-label="Featured patakha hamper">
+            <div className={styles.heroContent}>
+              <div className={styles.heroText}>
+                <h1>India's First Patakha Hamper</h1>
+                <p>Make their day explode with joy. Thoughtfully curated surprises, personalized just for them.</p>
+                <button className={styles.cta}>Shop now</button>
+              </div>
+              <div className={styles.heroVisual} aria-hidden="true">
+                <div className={styles.giftBox}>
+                  <img src={images.ayodhyaDiwali} alt="Patakha Hamper with festive decorations" className={styles.giftImage} loading="lazy" />
+                  <div className={styles.giftOverlay}>The Indian Santa</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+            {/* Rating Section */}
+           <TrustIndicator />
+
+          {/* Gifts by occasion */}
+          <Section 
+            title="Gifts by occasion"
+            items={[
+              { title: 'Anniversary', meta: 'Celebrate lasting love', image: images.anniversaryCelebration, alt: 'Anniversary celebration gifts' },
+              { title: 'Birthday', meta: 'Surprises for every age', image: images.birthdayParty, alt: 'Birthday party gifts' },
+              { title: 'Honeymoon', meta: 'Romance-packed picks', image: images.honeymoon, alt: 'Honeymoon gift ideas' },
+              { title: 'House warming', meta: 'Make new homes glow', image: images.houseWarming, alt: 'House warming gifts' },
+              { title: 'Baby shower for dads', meta: 'Cheer the new dad', image: images.babyShower, alt: 'Baby shower gifts for fathers' }
+            ]}
+            type="grid"
+            ariaLabelledBy="gifts-occasion"
+          />
+
+          {/* Products Section */}
+          <ProductsSection />
+
+          {/* Celebrations Calendar */}
+          <CelebrationsCalendar />
+
+          {/* Hampers for every occasion */}
+          <HampersSection />
+
+          {/* Gifts by Relationship */}
+          <GiftsByRelationship />
+
+          {/* Surprises For Little Ones */}
+          <SurprisesSection />
+
+          {/* Home & Living Gifts */}
+          <HomeLivingSection />
+
+          {/* Gift Finder */}
+          <GiftFinderSection />
+
+          {/* Customer Stories */}
+          <CustomerStories />
+
+          <p className={styles.footnote}>Make every occasion special with The Indian Santa</p>
+        </main>
+      </div>
+    </>
+  );
+};
+
+export default React.memo(HomePage);
