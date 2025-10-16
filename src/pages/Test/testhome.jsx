@@ -25,33 +25,33 @@ const images = {
   customHampers: 'https://images.unsplash.com/photo-1607082349566-187342175e2f?w=200&h=200&fit=crop',
   girlfriend: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop',
   homeDecor: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop',
-  
+
   // Occasions
   anniversaryCelebration: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&h=200&fit=crop',
   birthdayParty: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=300&h=200&fit=crop',
   honeymoon: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=300&h=200&fit=crop',
   houseWarming: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop',
   babyShower: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop',
-  
+
   // Products
   ayodhyaDiwali: 'https://images.unsplash.com/photo-1606996252427-1588ab5c101a?w=300&h=200&fit=crop',
   shubhDeepawali: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=300&h=200&fit=crop',
   diyPatakha: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=200&fit=crop',
   flavoursDiwali: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=300&h=200&fit=crop',
-  
+
   // Events
   bossDay: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=150&fit=crop',
   dhanteras: 'https://images.unsplash.com/photo-1606996252427-1588ab5c101a?w=200&h=150&fit=crop',
   diwali: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=200&h=150&fit=crop',
   bhaiDooj: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=200&h=150&fit=crop',
   halloween: 'https://images.unsplash.com/photo-1572860177022-8fda925e5a0e?w=200&h=150&fit=crop',
-  
+
   // Hampers
   dinoCake: 'https://images.unsplash.com/photo-1559715541-5dae8e1382ba?w=300&h=200&fit=crop',
   diwaliCookies: 'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=300&h=200&fit=crop',
   floralBouquet: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=300&h=200&fit=crop',
   sparklingTraditions: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=200&fit=crop',
-  
+
   // Relationships
   men: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
   women: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
@@ -61,21 +61,21 @@ const images = {
   boyfriend: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
   wife: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
   husband: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-  
+
   // Promos
   cakeCreations: 'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=400&h=250&fit=crop',
   lovelyGifts: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&h=250&fit=crop',
-  
+
   // Home & Living
   homeDecor: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop',
   photoFrames: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop',
   kitchenDining: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop',
-  
+
   // Gift Finder
   occasion: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=300&h=200&fit=crop',
   giftType: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=300&h=200&fit=crop',
   inspiration: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&h=200&fit=crop',
-  
+
   // Features
   dataPrivacy: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=100&h=100&fit=crop',
   happiness: 'https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=100&h=100&fit=crop',
@@ -85,12 +85,12 @@ const images = {
 
 // Trust Indicator Component
 const TrustIndicator = () => (
-  <div className={styles.trustIndicatorMain}> 
-  <div className={styles.trustIndicator}>
-    <span className={styles.trustIndicatorSpan}>
-      ⭐ Rated 4.8 / 5 | Trusted by 4,62,543 Happy Customers
-    </span>
-  </div>
+  <div className={styles.trustIndicatorMain}>
+    <div className={styles.trustIndicator}>
+      <span className={styles.trustIndicatorSpan}>
+        ⭐ Rated 4.8 / 5 | Trusted by 4,62,543 Happy Customers
+      </span>
+    </div>
   </div>
 );
 
@@ -100,7 +100,7 @@ const Section = ({ title, items, type = 'grid', ariaLabelledBy }) => (
     <header className={styles.sectionHeader}>
       <h2 id={ariaLabelledBy}>{title}</h2>
     </header>
-    
+
     {/* Mobile Carousel */}
     <div className={styles.scrollCarousel}>
       {items.map((item, index) => (
@@ -113,7 +113,7 @@ const Section = ({ title, items, type = 'grid', ariaLabelledBy }) => (
         </article>
       ))}
     </div>
-    
+
     {/* Desktop Grid */}
     <div className={styles.grid}>
       {items.map((item, index) => (
@@ -165,7 +165,7 @@ const ProductsSection = () => (
     {/* Desktop Grid */}
     <div className={styles.productsGrid}>
       {[
-        { name: 'Ayodhya ki Diwali Hamper', price: '₹1,290', original: '₹1,790', image: images.ayodhyaDiwali, alt: 'Ayodhya ki Diwali Hamper with traditional elements' },
+        { name: 'Ayodhya ki Diwali Hamper', price: '₹1,290', original: '₹1,790', image: images.shubhDeepawali, alt: 'Ayodhya ki Diwali Hamper with traditional elements' },
         { name: 'Shubh Deepawali Hamper', price: '₹1,490', original: '₹1,790', image: images.shubhDeepawali, alt: 'Shubh Deepawali gift hamper' },
         { name: 'DIY Patakha Box', price: '₹399', original: '₹499', image: images.diyPatakha, alt: 'DIY Patakha Box for festive celebrations' },
         { name: 'Flavours of Diwali Hamper', price: '₹1,690', original: '₹1,790', image: images.flavoursDiwali, alt: 'Flavours of Diwali food hamper' }
@@ -376,8 +376,11 @@ const CustomerStories = () => (
         </article>
       ))}
     </div>
+  </section>
+);
 
-    <div className={styles.trustFeatures}>
+const TeustFeatures = ()=>(
+  <div className={styles.trustFeatures}>
       {[
         { title: 'Data Privacy', desc: 'All personal information kept strictly confidential.', image: images.dataPrivacy, alt: 'Data privacy protection' },
         { title: 'Happiness Guaranteed', desc: 'Over 750,000 happy customers across India.', image: images.happiness, alt: 'Happiness guarantee' },
@@ -391,8 +394,7 @@ const CustomerStories = () => (
         </article>
       ))}
     </div>
-  </section>
-);
+)
 
 const HomePage = () => {
   return (
@@ -400,7 +402,7 @@ const HomePage = () => {
       <SEO />
       <div className={styles.container}>
         {/* <TrustIndicator /> */}
-        
+
         <main className={styles.main}>
           {/* Circular icons rail */}
           <section className={styles.iconsRail} aria-label="Quick categories">
@@ -432,18 +434,18 @@ const HomePage = () => {
               </div>
               <div className={styles.heroVisual} aria-hidden="true">
                 <div className={styles.giftBox}>
-                  <img src={images.ayodhyaDiwali} alt="Patakha Hamper with festive decorations" className={styles.giftImage} loading="lazy" />
+                  <img src={images.shubhDeepawali} alt="Patakha Hamper with festive decorations" className={styles.giftImage} loading="lazy" />
                   <div className={styles.giftOverlay}>The Indian Santa</div>
                 </div>
               </div>
             </div>
           </section>
 
-            {/* Rating Section */}
-           <TrustIndicator />
+          {/* Rating Section */}
+          <TrustIndicator />
 
           {/* Gifts by occasion */}
-          <Section 
+          <Section
             title="Gifts by occasion"
             items={[
               { title: 'Anniversary', meta: 'Celebrate lasting love', image: images.anniversaryCelebration, alt: 'Anniversary celebration gifts' },
@@ -479,6 +481,9 @@ const HomePage = () => {
 
           {/* Customer Stories */}
           <CustomerStories />
+
+          {/* Trust Features */}
+          <TeustFeatures /> 
 
           <p className={styles.footnote}>Make every occasion special with The Indian Santa</p>
         </main>

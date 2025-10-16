@@ -33,6 +33,52 @@ const Cart = () => {
     }
   ]);
 
+  // You may also like products
+  const recommendedProducts = [
+    {
+      id: 101,
+      name: "Luxury Fountain Pen",
+      price: 320,
+      image: "✒️",
+      category: "Writing"
+    },
+    {
+      id: 102,
+      name: "Silk Scarf Collection",
+      price: 180,
+      image: "🧣",
+      category: "Accessories"
+    },
+    {
+      id: 103,
+      name: "Marble Cheese Board",
+      price: 150,
+      image: "🧀",
+      category: "Home"
+    },
+    {
+      id: 104,
+      name: "Crystal Wine Glasses",
+      price: 220,
+      image: "🥂",
+      category: "Barware"
+    },
+    {
+      id: 105,
+      name: "Leather Travel Case",
+      price: 290,
+      image: "🧳",
+      category: "Travel"
+    },
+    {
+      id: 106,
+      name: "Artisanal Tea Set",
+      price: 170,
+      image: "🍵",
+      category: "Home"
+    }
+  ];
+
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
     setCartItems(cartItems.map(item => 
@@ -47,6 +93,11 @@ const Cart = () => {
   const moveToFavorites = (id) => {
     // Logic to move item to favorites
     console.log('Moving item to favorites:', id);
+  };
+
+  const addToCart = (product) => {
+    // Logic to add product to cart
+    console.log('Adding to cart:', product);
   };
 
   const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -206,6 +257,48 @@ const Cart = () => {
                 </svg>
                 Continue Shopping
               </Link>
+            </div>
+          </div>
+        )}
+
+        {/* You May Also Like Section */}
+        {cartItems.length > 0 && (
+          <div className={styles.recommendedSection}>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>You May Also Like</h2>
+              <p className={styles.sectionSubtitle}>Complete your luxury collection</p>
+            </div>
+            
+            <div className={styles.carouselContainer}>
+              <div className={styles.carousel}>
+                {recommendedProducts.map((product) => (
+                  <div key={product.id} className={styles.productCard}>
+                    <div className={styles.productImage}>
+                      <span className={styles.productIcon}>{product.image}</span>
+                    </div>
+                    
+                    <div className={styles.productInfo}>
+                      <div className={styles.productCategory}>{product.category}</div>
+                      <h3 className={styles.productName}>{product.name}</h3>
+                      <div className={styles.productPrice}>${product.price}</div>
+                      
+                      <button 
+                        className={styles.addToCartButton}
+                        onClick={() => addToCart(product)}
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 3h2l.4 2m0 0L7 13h10l2-8H5.4zM7 13l-2.3 2.3c-.4.4-.1 1.2.5 1.2H17m0 0v3a2 2 0 11-4 0v-3m4 0h-4" 
+                                stroke="currentColor" 
+                                strokeWidth="1.5" 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"/>
+                        </svg>
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}

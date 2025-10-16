@@ -171,6 +171,11 @@
   color: var(--primary);
 }
 
+/* Mobile Search Button - Hidden on desktop */
+.mobileSearchButton {
+  display: none;
+}
+
 .cartBadge {
   position: absolute;
   top: -0.25rem;
@@ -211,12 +216,19 @@
   cursor: pointer;
 }
 
+/* Desktop Only - Hide on mobile */
+.desktopOnly {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Mobile Menu Button - Hidden on mobile now */
 .mobileMenuButton {
   display: none;
 }
 
-/* Mobile Search Container - Only visible on mobile */
+/* Mobile Search Container - Only visible on mobile when active */
 .mobileSearchContainer {
   display: none;
   position: relative;
@@ -225,6 +237,18 @@
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   box-sizing: border-box;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobileSearchInput {
@@ -421,7 +445,16 @@
     min-width: auto;
   }
 
-  /* Show mobile search and bottom nav */
+  /* Show mobile search button and hide desktop login */
+  .mobileSearchButton {
+    display: flex;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  /* Show mobile search when active */
   .mobileSearchContainer {
     display: block;
   }

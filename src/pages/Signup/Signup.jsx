@@ -30,22 +30,44 @@ const Signup = () => {
 
   return (
     <div className={styles.signupPage}>
+      {/* Mobile Header */}
+      <div className={styles.mobileHeader}>
+        <Link to="/" className={styles.mobileBackButton}>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </Link>
+        <h1 className={styles.mobileTitle}>Create Account</h1>
+        <div className={styles.mobilePlaceholder}></div>
+      </div>
+
       <div className={styles.signupContainer}>
         {/* Left Side - Form */}
         <div className={styles.formSection}>
           <div className={styles.formContainer}>
-            <div className={styles.formHeader}>
+            {/* Desktop Back Button */}
+            <div className={styles.desktopBackButton}>
               <Link to="/" className={styles.backButton}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
                 Back to home
               </Link>
+            </div>
+
+            {/* Desktop Header */}
+            <div className={styles.formHeader}>
               <h1>Create Account</h1>
               <p>Join Indian Santa and discover luxury gifting like never before</p>
             </div>
 
             <form onSubmit={handleSubmit} className={styles.signupForm}>
+              {/* Mobile Welcome */}
+              <div className={styles.mobileWelcome}>
+                <h2>Welcome!</h2>
+                <p>Create your account to get started</p>
+              </div>
+
               <div className={styles.nameGroup}>
                 <div className={styles.formGroup}>
                   <label htmlFor="firstName" className={styles.formLabel}>
@@ -141,14 +163,16 @@ const Signup = () => {
                     className={styles.checkbox} 
                   />
                   <span className={styles.checkmark}></span>
-                  I agree to the{' '}
-                  <Link to="/terms" className={styles.link}>
-                    Terms of Service
-                  </Link>{' '}
-                  and{' '}
-                  <Link to="/privacy" className={styles.link}>
-                    Privacy Policy
-                  </Link>
+                  <span className={styles.checkboxText}>
+                    I agree to the{' '}
+                    <Link to="/terms" className={styles.link}>
+                      Terms of Service
+                    </Link>{' '}
+                    and{' '}
+                    <Link to="/privacy" className={styles.link}>
+                      Privacy Policy
+                    </Link>
+                  </span>
                 </label>
               </div>
 
